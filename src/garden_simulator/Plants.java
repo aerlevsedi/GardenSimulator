@@ -1,6 +1,6 @@
 package garden_simulator;
 
-public abstract class Plant {
+public abstract class Plants {
     protected Coordinates coordinates;
     protected int currentLife;
     protected int growthPhase;
