@@ -10,23 +10,22 @@ public abstract class Plants {
     }
 
     public void evalWeatherImpact(WeatherConditions weather) {
-        
-    };
+
+    }
 
     public void evalAnimalImpact(Animal animal) {
 
-    };
+    }
 
     public void updateGrowthPhase() {
 
-    };
+    }
 
     public boolean canReproduce(){
         return true;
-    };
+    }
 
     public Coordinates getCoordinates() {
         return coordinates;
     }
 }
-
