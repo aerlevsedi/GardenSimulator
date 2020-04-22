@@ -5,6 +5,10 @@ public abstract class Plants {
     protected int currentLife;
     protected int growthPhase;
 
+    public Plants(int x, int y){
+        coordinates = new Coordinates(x, y);
+    }
+
     public void evalWeatherImpact(WeatherConditions weather) {
         
     };
