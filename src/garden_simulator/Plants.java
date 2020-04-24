@@ -1,5 +1,5 @@
 package garden_simulator;
-
+/*TODO: in fact Plants + subclasses should be in package*/
 public abstract class Plants {
     protected Coordinates coordinates;
     protected int currentLife;
@@ -7,22 +7,26 @@ public abstract class Plants {
 
     public Plants(int x, int y){
         coordinates = new Coordinates(x, y);
+        currentLife = 50;
+        growthPhase = 0;
     }
 
     public void evalWeatherImpact(WeatherConditions weather) {
-
+        //to override, depends on class
     }
 
     public void evalAnimalImpact(Animal animal) {
-
+        //to override, depends on class
     }
 
     public void updateGrowthPhase() {
-
+        if(currentLife >= 100){
+            growthPhase++;
+        }
     }
 
     public boolean canReproduce(){
-        return true;
+        return (growthPhase == 5 && currentLife == 100);
     }
 
     public Coordinates getCoordinates() {

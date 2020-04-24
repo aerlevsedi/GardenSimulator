@@ -1,11 +1,11 @@
 package garden_simulator;
 
 public class Coordinates {
-    public int coordinateX; //maybe change to private and add getters and setters?
-    public int coordinateY;
+    public int X; //maybe change to private and add getters and setters?
+    public int Y;
 
-    public Coordinates(int x, int y) {
-        coordinateX = x;
-        coordinateY = y;
+    public Coordinates(int coorX, int coorY) {
+        X = coorX;
+        Y = coorY;
     }
 }
