@@ -15,8 +15,6 @@ public class Main {
         Mole mole = new Mole(2, 2);
         Flower tulip = new Flower(1, 1);
 
-
-
-
+        System.out.println(tulip.toString());
     }
 }

@@ -17,9 +17,13 @@ public class Flower extends Plants {
         currentLife += (int) (frost + wind + sun + rain);
     }
 
+
     public void evalAnimalImpact(Animal animal) {
         currentLife += animal.getImpact();
     }
 
-
+    @Override
+    public String toString() {
+        return "Flower[ coors: (" + coordinates.X + ", " + coordinates.Y + "); currentLife: " + currentLife + "; growthPhase: " + growthPhase + ";]";
+    }
 }

@@ -9,8 +9,7 @@ public abstract class Animal {
     protected int range;
 
     public Animal(int x, int y){
-        coordinates.X = x;
-        coordinates.Y = y;
+        coordinates = new Coordinates(x, y);
     }
 
     public void move(){

@@ -16,6 +16,4 @@ public class Vegetable extends Plants{
         //TODO
     }
 
-
-
 }
