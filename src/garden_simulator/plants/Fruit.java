@@ -1,4 +1,7 @@
-package garden_simulator;
+package garden_simulator.plants;
+
+import garden_simulator.animals.Animal;
+import garden_simulator.WeatherConditions;
 
 public class Fruit extends Plants{
     public Fruit(int coorX, int coorY){

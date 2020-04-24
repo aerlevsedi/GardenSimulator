@@ -1,4 +1,7 @@
-package garden_simulator;
+import garden_simulator.WeatherConditions;
+import garden_simulator.animals.Bee;
+import garden_simulator.animals.Mole;
+import garden_simulator.plants.Flower;
 
 public class Main {
 

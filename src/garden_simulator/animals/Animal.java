@@ -1,4 +1,6 @@
-package garden_simulator;
+package garden_simulator.animals;
+import garden_simulator.Coordinates;
+
 import java.util.Random;
 
 public abstract class Animal {

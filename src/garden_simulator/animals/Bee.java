@@ -1,4 +1,4 @@
-package garden_simulator;
+package garden_simulator.animals;
 
 public class Bee extends Animal{
     public Bee(int coorX, int coorY){

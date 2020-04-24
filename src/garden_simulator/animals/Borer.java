@@ -1,4 +1,4 @@
-package garden_simulator;
+package garden_simulator.animals;
 
 public class Borer extends Animal{
     public Borer(int coorX, int coorY){

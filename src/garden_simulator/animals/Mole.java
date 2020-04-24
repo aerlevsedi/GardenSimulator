@@ -1,4 +1,4 @@
-package garden_simulator;
+package garden_simulator.animals;
 
 public class Mole extends Animal{
     public Mole(int coorX, int coorY){
