@@ -2,7 +2,9 @@ import garden_simulator.WeatherConditions;
 import garden_simulator.animals.Bee;
 import garden_simulator.animals.Mole;
 import garden_simulator.plants.Flower;
+import garden_simulator.plants.Fruit;
 import garden_simulator.plants.Plants;
+import garden_simulator.plants.Vegetable;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,9 +27,9 @@ public class Main {
             System.out.println("NumberFormatException: " + nfe.getMessage());
         }
 
-        //TODO: add exception if flowersNumber<1
+        //TODO: add exception if flowersNumber<1 || >width*height
 
-        int gardenWidth = 2;
+        int gardenWidth = 3;
         int gardenHeight = 2;
         Plants[][] plantsGarden = new Plants[gardenWidth][gardenHeight];
 
@@ -37,11 +39,27 @@ public class Main {
 
             int X = coor.nextInt(gardenWidth);
             int Y = coor.nextInt(gardenHeight);
+            //TODO: if this coors are taken get new
 
-            Plants plant = new Flower(X, Y);
+            Plants plant;
+
+            Random kindRand = new Random();
+            int kind = kindRand.nextInt(3);
+            switch(kind){
+                case 0:
+                    plant = new Flower(X, Y);
+                    break;
+                case 1:
+                    plant = new Vegetable(X, Y);
+                    break;
+                case 2:
+                    plant = new Fruit(X, Y);
+                    break;
+                default:
+                    plant = new Flower(X, Y);
+            }
 
             plantsArray[i] = plant;
-            //TODO: if this coors are taken get new
             plantsGarden[X][Y] = plant;
         }
 

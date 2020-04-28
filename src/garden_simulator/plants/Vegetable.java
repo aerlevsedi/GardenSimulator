@@ -4,7 +4,7 @@ import garden_simulator.animals.Animal;
 import garden_simulator.WeatherConditions;
 
 public class Vegetable extends Plants{
-    Vegetable(int coorX, int coorY){
+    public Vegetable(int coorX, int coorY){
         super(coorX, coorY);
     }
 
@@ -16,4 +16,8 @@ public class Vegetable extends Plants{
         //TODO
     }
 
+    @Override
+    public String toString() {
+        return "Vegetable[ coors: (" + coordinates.getX() + ", " + coordinates.getY() + "); currentLife: " + currentLife + "; growthPhase: " + growthPhase + ";]";
+    }
 }

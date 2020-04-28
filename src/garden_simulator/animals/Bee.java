@@ -6,6 +6,10 @@ public class Bee extends Animal{
 
         impact = 10;
         range = 10; //TODO: should depend on garden size
+    }
 
+    @Override
+    public String toString() { //can it be in superclass?
+        return "Bee[ coors: (" + coordinates.getX() + ", " + coordinates.getY() + ");]";
     }
 }
