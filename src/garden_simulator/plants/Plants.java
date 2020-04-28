@@ -4,7 +4,6 @@ import garden_simulator.animals.Animal;
 import garden_simulator.Coordinates;
 import garden_simulator.WeatherConditions;
 
-/*TODO: in fact Plants + subclasses should be in package*/
 public abstract class Plants {
     protected Coordinates coordinates;
     protected int currentLife;
@@ -22,10 +21,12 @@ public abstract class Plants {
 
     public void evalAnimalImpact(Animal animal) {
         //to override, depends on class
+        updateGrowthPhase();
     }
 
     public void updateGrowthPhase() {
         if(currentLife >= 100){
+            currentLife = 50;
             growthPhase++;
         }
     }

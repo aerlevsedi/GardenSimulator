@@ -20,10 +20,11 @@ public class Flower extends Plants {
 
     public void evalAnimalImpact(Animal animal) {
         currentLife += animal.getImpact();
+        updateGrowthPhase();
     }
 
     @Override
     public String toString() {
-        return "Flower[ coors: (" + coordinates.X + ", " + coordinates.Y + "); currentLife: " + currentLife + "; growthPhase: " + growthPhase + ";]";
+        return "Flower[ coors: (" + coordinates.getX() + ", " + coordinates.getY() + "); currentLife: " + currentLife + "; growthPhase: " + growthPhase + ";]";
     }
 }
