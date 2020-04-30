@@ -21,4 +21,9 @@ public class Coordinates {
         X = x;
         Y = y;
     }
+
+    @Override
+    public String toString() {
+        return "("+ X + "," + Y + ")";
+    }
 }

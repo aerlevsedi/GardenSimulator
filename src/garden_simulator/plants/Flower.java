@@ -15,6 +15,7 @@ public class Flower extends Plants {
         double rain = 0.6*weather.getRain();
 
         currentLife += (int) (frost + wind + sun + rain);
+        updateGrowthPhase();
     }
 
 
