@@ -174,6 +174,7 @@ public class Main {
                 animalsArray[i].move();
             }
 
+            System.out.println("\nanimalsArray:");
             for(int i=0; i<animalsNumber; i++){
                 System.out.println(animalsArray[i].toString());
             }
