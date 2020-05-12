@@ -51,7 +51,7 @@ public class Main {
 
         //TODO: add exception if flowersNumber<1 || >width*height
 
-        System.out.println("Hello world");
+        System.out.println("Worked?");
 
         int maxPlantsNumber = gardenHeight*gardenWidth;
 
