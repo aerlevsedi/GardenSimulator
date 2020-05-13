@@ -1,11 +1,15 @@
 package garden_simulator.animals;
 
+
 public class Bee extends Animal{
     public Bee(int coorX, int coorY){
         super(coorX, coorY);
 
         impact = 20;
-        range = 1; //TODO: should depend on garden size
+        range = (int)0.3*width*height;
+        if(range<1)
+            range=1;
+
     }
 
     @Override

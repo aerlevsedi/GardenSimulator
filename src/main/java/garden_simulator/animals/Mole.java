@@ -5,7 +5,9 @@ public class Mole extends Animal{
         super(coorX, coorY);
 
         impact = -5;
-        range = 1; //TODO: should depend on garden size
+        range = (int)0.2*width*height;
+        if(range<1)
+            range=1;
     }
 
     @Override

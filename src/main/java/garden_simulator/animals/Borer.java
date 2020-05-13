@@ -5,7 +5,9 @@ public class Borer extends Animal{
         super(coorX, coorY);
 
         impact = -10;
-        range = 1; //TODO: should depend on garden size
+        range = (int)0.1*width*height;
+        if(range<1)
+            range=1;
     }
 
     @Override

@@ -7,6 +7,7 @@ public class WeatherConditions {
     private int wind;
     private int sun;
 
+
     public WeatherConditions(){
         rain = 10;
         frost = 10;

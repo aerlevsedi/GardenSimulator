@@ -25,14 +25,37 @@ public abstract class Plants {
     }
 
     public void updateGrowthPhase() {
-        if(currentLife >= 100){
+        if(currentLife >= 70 && growthPhase<5 ){
             currentLife = 50;
             growthPhase++;
         }
+        if(currentLife<50 && growthPhase>0) {
+            growthPhase--;
+            currentLife = 50;
+        }
+
+
     }
+    //TODO Removing an object
+    /*
+    public boolean shouldDie() {
+
+        boolean t=false;
+        if(growthPhase==0 && currentLife<50)
+            t=true;
+
+        return t;
+
+    }
+    */
 
     public boolean canReproduce(){
-        return (growthPhase == 5 && currentLife == 100);
+
+        boolean t=false;
+        if(growthPhase == 5 && currentLife >= 70)
+                t=true;
+
+        return t;
     }
 
     public Coordinates getCoordinates() {
