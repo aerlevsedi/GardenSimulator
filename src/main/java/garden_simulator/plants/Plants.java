@@ -29,33 +29,26 @@ public abstract class Plants {
             currentLife = 50;
             growthPhase++;
         }
+        /*
         if(currentLife<50 && growthPhase>0) {
             growthPhase--;
             currentLife = 50;
         }
-
-
+        */
     }
-    //TODO Removing an object
-    /*
+
     public boolean shouldDie() {
+        if(currentLife <= 0){
+            System.out.println("Zdechlo!");
+        }
 
-        boolean t=false;
-        if(growthPhase==0 && currentLife<50)
-            t=true;
-
-        return t;
+        return (currentLife <= 0);
 
     }
-    */
 
     public boolean canReproduce(){
 
-        boolean t=false;
-        if(growthPhase == 5 && currentLife >= 70)
-                t=true;
-
-        return t;
+        return (growthPhase == 5 && currentLife >= 70);
     }
 
     public Coordinates getCoordinates() {

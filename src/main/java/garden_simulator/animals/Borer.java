@@ -5,7 +5,7 @@ public class Borer extends Animal{
         super(coorX, coorY);
 
         impact = -10;
-        range = (int)0.1*width*height;
+        range = (int)(0.1*width*height);
         if(range<1)
             range=1;
     }

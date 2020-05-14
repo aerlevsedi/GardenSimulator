@@ -6,7 +6,7 @@ public class Bee extends Animal{
         super(coorX, coorY);
 
         impact = 20;
-        range = (int)0.3*width*height;
+        range = (int)(0.3*width*height);
         if(range<1)
             range=1;
 

@@ -11,6 +11,8 @@ import garden_simulator.plants.Vegetable;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -94,7 +96,7 @@ public class Main {
 
 
         Plants[][] plantsGarden = new Plants[gardenWidth][gardenHeight];
-        Plants[] plantsArray = new Plants[maxPlantsNumber];
+        List<Plants> plantsArray = new ArrayList<Plants>(plantsNumber);
 
         for (int i = 0; i < plantsNumber; i++) {
             Random coor = new Random();
@@ -125,13 +127,13 @@ public class Main {
                     plant = new Flower(X, Y);
             }
 
-            plantsArray[i] = plant;
+            plantsArray.add(plant);
             plantsGarden[X][Y] = plant;
         }
 
         System.out.println("\nplantsArray:");
         for (int i = 0; i < plantsNumber; i++) {
-            System.out.println(plantsArray[i].toString());
+            System.out.println(plantsArray.get(i).toString());
         }
 
         System.out.println("\nplantsGarden:");
@@ -170,7 +172,7 @@ public class Main {
 
             Random kindRand = new Random();
             int kind = kindRand.nextInt(3);
-            switch (kind) {
+            switch(kind) {
                 case 0:
                     animal = new Bee(X, Y);
                     break;
@@ -189,7 +191,7 @@ public class Main {
 
         WeatherConditions weather = new WeatherConditions();
 
-        for (int k = 0; k < 20; k++) {
+        while(plantsArray.size() > 0 && plantsArray.size()<maxPlantsNumber) {
             for (int i = 0; i < animalsNumber; i++) {
                 int X = animalsArray[i].getCoordinates().getX();
                 int Y = animalsArray[i].getCoordinates().getY();
@@ -201,32 +203,31 @@ public class Main {
                 }
             }
 
-            for (int i = 0; i < plantsNumber; i++) {
-                plantsArray[i].evalWeatherImpact(weather);
+            for(Plants value : plantsArray) {
+                value.evalWeatherImpact(weather);
             }
 
-            //TODO Removing dead plants a plant should die also after it reproduces
-            //TODO change PlantsArray to list
-            /*
+
             for (int i = 0; i < gardenHeight; i++) {
                 for (int j = 0; j < gardenWidth; j++) {
                         boolean shouldDie;
                         if(plantsGarden[j][i]!=null) {
                             shouldDie = plantsGarden[j][i].shouldDie();
 
-                            if (shouldDie == true) {
+                            if (shouldDie) {
+                                plantsArray.remove(plantsGarden[j][i]);
                                 plantsGarden[j][i] = null;
                             }
                         }
                 }
             }
 
-             */
+
 
             System.out.println("\nplantsArray:");
 
-            for (int i = 0; i < plantsNumber; i++) {
-                System.out.println(plantsArray[i].toString());
+            for (Plants plants : plantsArray) {
+                System.out.println(plants.toString());
             }
 
 
@@ -249,21 +250,21 @@ public class Main {
                                     if (plantsGarden[j][i] instanceof Flower) {
                                         plant = new Flower(m, i);
                                         plantsGarden[m][i] = plant;
-                                        plantsArray[plantsNumber] = plant;
+                                        plantsArray.add(plant);
                                         plantsNumber += 1;
                                         break;
                                     }
                                     if (plantsGarden[j][i] instanceof Vegetable) {
                                         plant = new Vegetable(m, i);
                                         plantsGarden[m][i] = plant;
-                                        plantsArray[plantsNumber] = plant;
+                                        plantsArray.add(plant);
                                         plantsNumber += 1;
                                         break;
                                     }
                                     if (plantsGarden[j][i] instanceof Fruit) {
                                         plant = new Fruit(m, i);
                                         plantsGarden[m][i] = plant;
-                                        plantsArray[plantsNumber] = plant;
+                                        plantsArray.add(plant);
                                         plantsNumber += 1;
                                         break;
                                     }
@@ -282,21 +283,21 @@ public class Main {
                                     if (plantsGarden[j][i] instanceof Flower) {
                                         plant = new Flower(m, i);
                                         plantsGarden[m][i] = plant;
-                                        plantsArray[plantsNumber] = plant;
+                                        plantsArray.add(plant);
                                         plantsNumber += 1;
                                         break;
                                     }
                                     if (plantsGarden[j][i] instanceof Vegetable) {
                                         plant = new Vegetable(m, i);
                                         plantsGarden[m][i] = plant;
-                                        plantsArray[plantsNumber] = plant;
+                                        plantsArray.add(plant);
                                         plantsNumber += 1;
                                         break;
                                     }
                                     if (plantsGarden[j][i] instanceof Fruit) {
                                         plant = new Fruit(m, i);
                                         plantsGarden[m][i] = plant;
-                                        plantsArray[plantsNumber] = plant;
+                                        plantsArray.add(plant);
                                         plantsNumber += 1;
                                         break;
                                     }
@@ -313,21 +314,21 @@ public class Main {
                                     if (plantsGarden[j][i] instanceof Flower) {
                                         plant = new Flower(j, m);
                                         plantsGarden[j][m] = plant;
-                                        plantsArray[plantsNumber] = plant;
+                                        plantsArray.add(plant);
                                         plantsNumber += 1;
                                         break;
                                     }
                                     if (plantsGarden[j][i] instanceof Vegetable) {
                                         plant = new Vegetable(j, m);
                                         plantsGarden[j][m] = plant;
-                                        plantsArray[plantsNumber] = plant;
+                                        plantsArray.add(plant);
                                         plantsNumber += 1;
                                         break;
                                     }
                                     if (plantsGarden[j][i] instanceof Fruit) { ;
                                         plant = new Fruit(j, m);
                                         plantsGarden[j][m] = plant;
-                                        plantsArray[plantsNumber] = plant;
+                                        plantsArray.add(plant);
                                         plantsNumber += 1;
                                         break;
                                     }
@@ -345,21 +346,21 @@ public class Main {
                                     if (plantsGarden[j][i] instanceof Flower) {
                                         plant = new Flower(j, m);
                                         plantsGarden[j][m] = plant;
-                                        plantsArray[plantsNumber] = plant;
+                                        plantsArray.add(plant);
                                         plantsNumber += 1;
                                         break;
                                     }
                                     if (plantsGarden[j][i] instanceof Vegetable) {
                                         plant = new Vegetable(j, m);
                                         plantsGarden[j][m] = plant;
-                                        plantsArray[plantsNumber] = plant;
+                                        plantsArray.add(plant);
                                         plantsNumber += 1;
                                         break;
                                     }
                                     if (plantsGarden[j][i] instanceof Fruit) {
                                         plant = new Fruit(j, m);
                                         plantsGarden[j][m] = plant;
-                                        plantsArray[plantsNumber] = plant;
+                                        plantsArray.add(plant);
                                         plantsNumber += 1;
                                         break;
                                     }
@@ -371,18 +372,36 @@ public class Main {
             }
 
 
-                    for (int i = 0; i < animalsNumber; i++) {
-                        animalsArray[i].move();
-                    }
-
-                    System.out.println("\nanimalsArray:");
-                    for (int i = 0; i < animalsNumber; i++) {
-                        System.out.println(animalsArray[i].toString());
-                    }
-
-                    weather.changeWeather();
-                }
-
+            for (int i = 0; i < animalsNumber; i++) {
+                animalsArray[i].move();
             }
+
+            System.out.println("\nplantsGarden drawing:");
+            for (int i = 0; i < gardenHeight; i++) {
+                for (int j = 0; j < gardenWidth; j++) {
+                    if (plantsGarden[j][i] == null) {
+                        //System.out.print("O");
+                        System.out.print("(X,Y)");
+                    } else {
+                        System.out.print(plantsGarden[j][i].getCoordinates().toString());
+                    }
+                }
+                System.out.println();
+            }
+
+
+
+            System.out.println("\nanimalsArray:");
+            for (int i = 0; i < animalsNumber; i++) {
+                System.out.println(animalsArray[i].toString());
+            }
+
+            weather.changeWeather();
+
+            //TODO: nice logs with dayNumber, number of plants etc
+
         }
+
+    }
+}
 

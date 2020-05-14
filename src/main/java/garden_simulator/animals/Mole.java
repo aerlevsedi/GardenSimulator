@@ -4,8 +4,8 @@ public class Mole extends Animal{
     public Mole(int coorX, int coorY){
         super(coorX, coorY);
 
-        impact = -5;
-        range = (int)0.2*width*height;
+        impact = -10;
+        range = (int)(0.2*width*height);
         if(range<1)
             range=1;
     }
