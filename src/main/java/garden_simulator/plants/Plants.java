@@ -38,9 +38,6 @@ public abstract class Plants {
     }
 
     public boolean shouldDie() {
-        if(currentLife <= 0){
-            System.out.println("Zdechlo!");
-        }
 
         return (currentLife <= 0);
 
@@ -50,6 +47,7 @@ public abstract class Plants {
 
         return (growthPhase == 5 && currentLife >= 70);
     }
+
 
     public Coordinates getCoordinates() {
         return coordinates;

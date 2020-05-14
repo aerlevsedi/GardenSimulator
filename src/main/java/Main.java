@@ -230,7 +230,7 @@ public class Main {
                 System.out.println(plants.toString());
             }
 
-
+            //TODO plants dying after they reproduce
 
             for (int i = 0; i < gardenHeight; i++) {
                 for (int j = 0; j < gardenWidth; j++) {
@@ -354,6 +354,7 @@ public class Main {
                                     }
                                 }
                             }
+
                         }
                     }
                 }
