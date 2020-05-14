@@ -132,8 +132,8 @@ public class Main {
         }
 
         System.out.println("\nplantsArray:");
-        for (int i = 0; i < plantsNumber; i++) {
-            System.out.println(plantsArray.get(i).toString());
+        for (Plants item : plantsArray) {
+            System.out.println(item.toString());
         }
 
         System.out.println("\nplantsGarden:");
@@ -161,7 +161,7 @@ public class Main {
         }
 
         int animalsNumber = maxPlantsNumber;
-        Animal[] animalsArray = new Animal[animalsNumber];
+        Animal[] animalsArray = new Animal[maxPlantsNumber];
         for (int i = 0; i < animalsNumber; i++) {
             Random coor = new Random();
 
@@ -235,15 +235,15 @@ public class Main {
             for (int i = 0; i < gardenHeight; i++) {
                 for (int j = 0; j < gardenWidth; j++) {
                     Plants plant;
-                    if(plantsNumber>=maxPlantsNumber)
+                    if(plantsArray.size()>=maxPlantsNumber)
                         break;
                     if (plantsGarden[j][i] != null) {
                         boolean canReproduce = plantsGarden[j][i].canReproduce();
-                        if (canReproduce == true) {
+                        if (canReproduce) {
 
                             for (int m = j - 1; m >= 0; m--) {
 
-                                if(plantsNumber>=maxPlantsNumber)
+                                if(plantsArray.size()>=maxPlantsNumber)
                                     break;
 
                                 if (plantsGarden[m][i] == null) {
@@ -251,21 +251,18 @@ public class Main {
                                         plant = new Flower(m, i);
                                         plantsGarden[m][i] = plant;
                                         plantsArray.add(plant);
-                                        plantsNumber += 1;
                                         break;
                                     }
                                     if (plantsGarden[j][i] instanceof Vegetable) {
                                         plant = new Vegetable(m, i);
                                         plantsGarden[m][i] = plant;
                                         plantsArray.add(plant);
-                                        plantsNumber += 1;
                                         break;
                                     }
                                     if (plantsGarden[j][i] instanceof Fruit) {
                                         plant = new Fruit(m, i);
                                         plantsGarden[m][i] = plant;
                                         plantsArray.add(plant);
-                                        plantsNumber += 1;
                                         break;
                                     }
                                 }
@@ -275,7 +272,7 @@ public class Main {
 
                             for (int m = j + 1; m <= gardenWidth - 1; m++) {
 
-                                if(plantsNumber>=maxPlantsNumber)
+                                if(plantsArray.size()>=maxPlantsNumber)
                                     break;
 
                                 if (plantsGarden[m][i] == null) {
@@ -284,21 +281,18 @@ public class Main {
                                         plant = new Flower(m, i);
                                         plantsGarden[m][i] = plant;
                                         plantsArray.add(plant);
-                                        plantsNumber += 1;
                                         break;
                                     }
                                     if (plantsGarden[j][i] instanceof Vegetable) {
                                         plant = new Vegetable(m, i);
                                         plantsGarden[m][i] = plant;
                                         plantsArray.add(plant);
-                                        plantsNumber += 1;
                                         break;
                                     }
                                     if (plantsGarden[j][i] instanceof Fruit) {
                                         plant = new Fruit(m, i);
                                         plantsGarden[m][i] = plant;
                                         plantsArray.add(plant);
-                                        plantsNumber += 1;
                                         break;
                                     }
                                 }
@@ -307,7 +301,7 @@ public class Main {
 
                             for (int m = i - 1; m >= 0; m--) {
 
-                                if(plantsNumber>=maxPlantsNumber)
+                                if(plantsArray.size()>=maxPlantsNumber)
                                     break;
 
                                 if (plantsGarden[j][m] == null) {
@@ -315,21 +309,18 @@ public class Main {
                                         plant = new Flower(j, m);
                                         plantsGarden[j][m] = plant;
                                         plantsArray.add(plant);
-                                        plantsNumber += 1;
                                         break;
                                     }
                                     if (plantsGarden[j][i] instanceof Vegetable) {
                                         plant = new Vegetable(j, m);
                                         plantsGarden[j][m] = plant;
                                         plantsArray.add(plant);
-                                        plantsNumber += 1;
                                         break;
                                     }
                                     if (plantsGarden[j][i] instanceof Fruit) { ;
                                         plant = new Fruit(j, m);
                                         plantsGarden[j][m] = plant;
                                         plantsArray.add(plant);
-                                        plantsNumber += 1;
                                         break;
                                     }
                                 }
@@ -338,7 +329,7 @@ public class Main {
 
                             for (int m = i + 1; m <= gardenHeight - 1; m++) {
 
-                                if(plantsNumber>=maxPlantsNumber)
+                                if(plantsArray.size()>=maxPlantsNumber)
                                     break;
 
                                 if (plantsGarden[j][m] == null)
@@ -347,21 +338,18 @@ public class Main {
                                         plant = new Flower(j, m);
                                         plantsGarden[j][m] = plant;
                                         plantsArray.add(plant);
-                                        plantsNumber += 1;
                                         break;
                                     }
                                     if (plantsGarden[j][i] instanceof Vegetable) {
                                         plant = new Vegetable(j, m);
                                         plantsGarden[j][m] = plant;
                                         plantsArray.add(plant);
-                                        plantsNumber += 1;
                                         break;
                                     }
                                     if (plantsGarden[j][i] instanceof Fruit) {
                                         plant = new Fruit(j, m);
                                         plantsGarden[j][m] = plant;
                                         plantsArray.add(plant);
-                                        plantsNumber += 1;
                                         break;
                                     }
                                 }
