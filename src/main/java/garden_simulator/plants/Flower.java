@@ -1,11 +1,12 @@
 package garden_simulator.plants;
 
+import garden_simulator.Coordinates;
 import garden_simulator.animals.Animal;
 import garden_simulator.WeatherConditions;
 
 public class Flower extends Plants {
-    public Flower(int coorX, int coorY){
-        super(coorX, coorY);
+    public Flower(Coordinates coors){
+        super(coors);
     };
 
     public void evalWeatherImpact(WeatherConditions weather) {

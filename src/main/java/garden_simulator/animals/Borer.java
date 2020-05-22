@@ -1,8 +1,10 @@
 package garden_simulator.animals;
 
+import garden_simulator.Coordinates;
+
 public class Borer extends Animal{
-    public Borer(int coorX, int coorY){
-        super(coorX, coorY);
+    public Borer(Coordinates coors){
+        super(coors);
 
         impact = -10;
         range = (int)(0.1*width*height);

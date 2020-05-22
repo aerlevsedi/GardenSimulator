@@ -1,8 +1,10 @@
 package garden_simulator.animals;
 
+import garden_simulator.Coordinates;
+
 public class Mole extends Animal{
-    public Mole(int coorX, int coorY){
-        super(coorX, coorY);
+    public Mole(Coordinates coors){
+        super(coors);
 
         impact = -10;
         range = (int)(0.2*width*height);

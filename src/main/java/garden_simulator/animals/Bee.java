@@ -1,9 +1,11 @@
 package garden_simulator.animals;
 
 
+import garden_simulator.Coordinates;
+
 public class Bee extends Animal{
-    public Bee(int coorX, int coorY){
-        super(coorX, coorY);
+    public Bee(Coordinates coors){
+        super(coors);
 
         impact = 20;
         range = (int)(0.3*width*height);

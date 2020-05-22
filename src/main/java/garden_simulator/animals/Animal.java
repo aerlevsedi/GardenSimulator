@@ -9,8 +9,8 @@ public abstract class Animal {
     protected int range;
 
 
-    public Animal(int x, int y){
-        coordinates = new Coordinates(x, y);
+    public Animal(Coordinates coors){
+        coordinates = coors;
     }
 
     static int width;
