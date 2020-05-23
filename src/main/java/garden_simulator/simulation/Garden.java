@@ -3,26 +3,26 @@ package garden_simulator.simulation;
 import garden_simulator.weather.WeatherConditions;
 
 public class Garden {
-    private GardenProperties gardenProperties;
+    private final GardenProperties gardenProperties; //need it?
 
-    public PlantsPositions plantsPositions;
-    public AnimalsPositions animalsPositions;
+    private final PlantsPositions plantsPositions;
+    private final AnimalsPositions animalsPositions;
 
     public WeatherConditions weatherConditions;
 
-    public Garden(GardenProperties properties){
+    public Garden(GardenProperties properties) {
         gardenProperties = properties;
         plantsPositions = new PlantsPositions(gardenProperties);
         animalsPositions = new AnimalsPositions(gardenProperties);
         weatherConditions = new WeatherConditions();
     }
 
-    public void impact(){
+    public void impact() {
         plantsPositions.animalImpact(animalsPositions);
         plantsPositions.weatherImpact(weatherConditions);
     }
 
-    public void update(){
+    public void update() {
         plantsPositions.killPlants();
         plantsPositions.reproduce();
         animalsPositions.move();
@@ -30,24 +30,23 @@ public class Garden {
         impact();
     }
 
-
-    public void draw(){
+    public void draw() {
         plantsPositions.draw();
     }
 
-    public void listPlants(){
+    public void listPlants() {
         plantsPositions.list();
     }
 
-    public void listAnimals(){
+    public void listAnimals() {
         animalsPositions.list();
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return plantsPositions.isEmpty();
     }
 
-    public boolean isFull(){
+    public boolean isFull() {
         return plantsPositions.isFull();
     }
 

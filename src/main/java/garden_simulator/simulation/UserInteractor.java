@@ -75,7 +75,7 @@ public class UserInteractor {
             System.out.println("NumberFormatException: " + nfe.getMessage());
         }
 
-        while (plantsNumber < 1 || plantsNumber > gardenProp.getGardenWidth()  * gardenProp.getGardenHeight()) {
+        while (plantsNumber < 1 || plantsNumber > gardenProp.getGardenWidth() * gardenProp.getGardenHeight()) {
             System.out.println("Number of plants is incorrect, please set new one");
 
             System.out.println("Number of plants: ");

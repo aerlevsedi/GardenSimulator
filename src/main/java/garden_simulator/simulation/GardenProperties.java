@@ -5,7 +5,7 @@ public class GardenProperties {
     private final int gardenHeight;
     private int plantsStartingNumber;
 
-    public GardenProperties(int width, int height){
+    public GardenProperties(int width, int height) {
         gardenWidth = width;
         gardenHeight = height;
     }

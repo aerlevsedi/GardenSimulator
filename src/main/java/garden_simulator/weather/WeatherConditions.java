@@ -1,4 +1,5 @@
 package garden_simulator.weather;
+
 import java.util.Random;
 
 public class WeatherConditions {
@@ -8,7 +9,7 @@ public class WeatherConditions {
     private final int sun;
 
 
-    public WeatherConditions(){
+    public WeatherConditions() {
         Random rand = new Random();
         rain = rand.nextInt(21);
         frost = rand.nextInt(21);

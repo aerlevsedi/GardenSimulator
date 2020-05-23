@@ -1,4 +1,5 @@
 package garden_simulator.simulation;
+
 import java.io.IOException;
 
 public class Simulation {
@@ -11,7 +12,7 @@ public class Simulation {
 
         Garden garden = new Garden(gardenProperties);
 
-        while(!garden.isEmpty() && !garden.isFull()) {
+        while (!garden.isEmpty() && !garden.isFull()) {
             garden.draw();
             garden.listPlants();
             //garden.listAnimals();
@@ -22,7 +23,4 @@ public class Simulation {
         }
         garden.draw();
     }
-
-
-
 }

@@ -9,7 +9,7 @@ public abstract class Plants {
     protected int currentLife;
     protected int growthPhase;
 
-    public Plants(Coordinates coors){
+    public Plants(Coordinates coors) {
         coordinates = coors;
         currentLife = 50;
         growthPhase = 0;
@@ -25,7 +25,7 @@ public abstract class Plants {
     }
 
     public void updateGrowthPhase() {
-        if(currentLife >= 70 && growthPhase<5 ){
+        if (currentLife >= 70 && growthPhase < 5) {
             currentLife = 50;
             growthPhase++;
         }
@@ -43,7 +43,7 @@ public abstract class Plants {
 
     }
 
-    public boolean canReproduce(){
+    public boolean canReproduce() {
 
         return (growthPhase == 5 && currentLife >= 70);
     }

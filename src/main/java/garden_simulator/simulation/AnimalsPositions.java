@@ -25,7 +25,7 @@ public class AnimalsPositions {
 
             Random kindRand = new Random();
             int kind = kindRand.nextInt(3);
-            switch(kind) {
+            switch (kind) {
                 case 0:
                     animal = new Bee(coors);
                     break;
@@ -45,13 +45,13 @@ public class AnimalsPositions {
 
     public void list() {
         System.out.println("\nanimalsArray:");
-        for(Animal animal : animalsArray) {
+        for (Animal animal : animalsArray) {
             System.out.println(animal.toString());
         }
     }
 
     public void move() {
-        for(Animal animal : animalsArray){
+        for (Animal animal : animalsArray) {
             animal.move();
         }
     }

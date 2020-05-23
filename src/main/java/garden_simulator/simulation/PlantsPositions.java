@@ -64,7 +64,7 @@ public class PlantsPositions {
 
     public void animalImpact(AnimalsPositions animalsPositions) {
 
-        for(Animal animal : animalsPositions.animalsArray){
+        for (Animal animal : animalsPositions.animalsArray) {
             int X = animal.getCoordinates().getX();
             int Y = animal.getCoordinates().getY();
 
@@ -79,7 +79,7 @@ public class PlantsPositions {
 
     public void weatherImpact(WeatherConditions weatherConditions) {
 
-        for(Plants plant : plantsArray) {
+        for (Plants plant : plantsArray) {
             plant.evalWeatherImpact(weatherConditions);
         }
 
@@ -90,7 +90,7 @@ public class PlantsPositions {
         for (int i = 0; i < gardenProperties.getGardenHeight(); i++) {
             for (int j = 0; j < gardenProperties.getGardenWidth(); j++) {
                 boolean shouldDie;
-                if(plantsGarden[j][i]!=null) {
+                if (plantsGarden[j][i] != null) {
                     shouldDie = plantsGarden[j][i].shouldDie();
 
                     if (shouldDie) {
@@ -109,7 +109,7 @@ public class PlantsPositions {
             for (int j = 0; j < gardenProperties.getGardenWidth(); j++) {
                 Plants plant; //TODO maybe try to do this without "empty" object
 
-                if(plantsArray.size() >= gardenProperties.getMaxPlantsNumber())
+                if (plantsArray.size() >= gardenProperties.getMaxPlantsNumber())
                     break;
 
                 if (plantsGarden[j][i] != null) {
@@ -119,11 +119,11 @@ public class PlantsPositions {
 
                         for (int m = j - 1; m >= 0; m--) {
 
-                            if(plantsArray.size() >= gardenProperties.getMaxPlantsNumber())
+                            if (plantsArray.size() >= gardenProperties.getMaxPlantsNumber())
                                 break;
 
                             if (plantsGarden[m][i] == null) {
-                                Coordinates coors =  new Coordinates(m,i);
+                                Coordinates coors = new Coordinates(m, i);
 
                                 if (plantsGarden[j][i] instanceof Flower) {
                                     plant = new Flower(coors);
@@ -148,11 +148,11 @@ public class PlantsPositions {
 
                         for (int m = j + 1; m <= gardenProperties.getGardenWidth() - 1; m++) {
 
-                            if(plantsArray.size() >= gardenProperties.getMaxPlantsNumber())
+                            if (plantsArray.size() >= gardenProperties.getMaxPlantsNumber())
                                 break;
 
                             if (plantsGarden[m][i] == null) {
-                                Coordinates coors =  new Coordinates(m,i);
+                                Coordinates coors = new Coordinates(m, i);
                                 if (plantsGarden[j][i] instanceof Flower) {
                                     plant = new Flower(coors);
                                     plantsGarden[m][i] = plant;
@@ -177,11 +177,11 @@ public class PlantsPositions {
 
                         for (int m = i - 1; m >= 0; m--) {
 
-                            if(plantsArray.size() >= gardenProperties.getMaxPlantsNumber())
+                            if (plantsArray.size() >= gardenProperties.getMaxPlantsNumber())
                                 break;
 
                             if (plantsGarden[j][m] == null) {
-                                Coordinates coors =  new Coordinates(m,i);
+                                Coordinates coors = new Coordinates(m, i);
                                 if (plantsGarden[j][i] instanceof Flower) {
                                     plant = new Flower(coors);
                                     plantsGarden[j][m] = plant;
@@ -194,7 +194,7 @@ public class PlantsPositions {
                                     plantsArray.add(plant);
                                     break;
                                 }
-                                if (plantsGarden[j][i] instanceof Fruit) { ;
+                                if (plantsGarden[j][i] instanceof Fruit) {
                                     plant = new Fruit(coors);
                                     plantsGarden[j][m] = plant;
                                     plantsArray.add(plant);
@@ -206,11 +206,11 @@ public class PlantsPositions {
 
                         for (int m = i + 1; m <= gardenProperties.getGardenHeight() - 1; m++) {
 
-                            if(plantsArray.size() >= gardenProperties.getMaxPlantsNumber())
+                            if (plantsArray.size() >= gardenProperties.getMaxPlantsNumber())
                                 break;
 
                             if (plantsGarden[j][m] == null) {
-                                Coordinates coors =  new Coordinates(m,i);
+                                Coordinates coors = new Coordinates(m, i);
                                 if (plantsGarden[j][i] instanceof Flower) {
                                     plant = new Flower(coors);
                                     plantsGarden[j][m] = plant;
@@ -237,15 +237,15 @@ public class PlantsPositions {
         }
     }
 
-    public int getPlantsNumber(){
+    public int getPlantsNumber() {
         return plantsArray.size();
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return plantsArray.isEmpty();
     }
 
-    public boolean isFull(){
+    public boolean isFull() {
         return (plantsArray.size() == gardenProperties.getMaxPlantsNumber());
     }
 
@@ -268,7 +268,7 @@ public class PlantsPositions {
         }
     }
 
-    public void list(){
+    public void list() {
         int gardenHeight = gardenProperties.getGardenHeight();
         int gardenWidth = gardenProperties.getGardenWidth();
 
