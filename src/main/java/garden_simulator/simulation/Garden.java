@@ -1,6 +1,6 @@
 package garden_simulator.simulation;
 
-import garden_simulator.WeatherConditions;
+import garden_simulator.weather.WeatherConditions;
 
 public class Garden {
     private GardenProperties gardenProperties;
@@ -26,7 +26,7 @@ public class Garden {
         plantsPositions.killPlants();
         plantsPositions.reproduce();
         animalsPositions.move();
-        weatherConditions.changeWeather();
+        weatherConditions = new WeatherConditions();
         impact();
     }
 
@@ -44,11 +44,14 @@ public class Garden {
     }
 
     public boolean isEmpty(){
-        return plantsPositions.plantsArray.isEmpty();
+        return plantsPositions.isEmpty();
     }
 
     public boolean isFull(){
-        return (plantsPositions.plantsArray.size() == gardenProperties.getMaxPlantsNumber());
+        return plantsPositions.isFull();
     }
 
+    public void stats() {
+        //TODO nice stats with number of plants, number of plants in each phase, max, etc
+    }
 }

@@ -1,7 +1,7 @@
 package garden_simulator.animals;
 
 
-import garden_simulator.Coordinates;
+import garden_simulator.coordinates.Coordinates;
 
 public class Bee extends Animal{
     public Bee(Coordinates coors){

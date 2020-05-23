@@ -1,5 +1,5 @@
 package garden_simulator.animals;
-import garden_simulator.Coordinates;
+import garden_simulator.coordinates.Coordinates;
 
 import java.util.Random;
 

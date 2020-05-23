@@ -1,7 +1,7 @@
 package garden_simulator.simulation;
 
-import garden_simulator.Coordinates;
-import garden_simulator.WeatherConditions;
+import garden_simulator.coordinates.Coordinates;
+import garden_simulator.weather.WeatherConditions;
 import garden_simulator.animals.Animal;
 import garden_simulator.plants.Flower;
 import garden_simulator.plants.Fruit;
@@ -17,12 +17,11 @@ public class PlantsPositions {
     public Plants[][] plantsGarden;
     public List<Plants> plantsArray;
 
-
     public PlantsPositions(GardenProperties gardenProp) {
         gardenProperties = gardenProp;
         int gardenWidth = gardenProperties.getGardenWidth();
         int gardenHeight = gardenProperties.getGardenHeight();
-        int plantsNumber = gardenProperties.getPlantsNumber();
+        int plantsNumber = gardenProperties.getPlantsStartingNumberNumber();
 
         plantsGarden = new Plants[gardenWidth][gardenHeight];
         plantsArray = new ArrayList<Plants>(plantsNumber);
@@ -60,45 +59,6 @@ public class PlantsPositions {
 
             plantsArray.add(plant);
             plantsGarden[X][Y] = plant;
-        }
-    }
-
-    public void draw() {
-        int gardenHeight = gardenProperties.getGardenHeight();
-        int gardenWidth = gardenProperties.getGardenWidth();
-
-        System.out.println("\nplantsGarden drawing:");
-        for (int i = 0; i < gardenHeight; i++) {
-            for (int j = 0; j < gardenWidth; j++) {
-                if (plantsGarden[j][i] == null) {
-                    //System.out.print("O");
-                    System.out.print("(X,Y)");
-                } else {
-                    System.out.print(plantsGarden[j][i].getCoordinates().toString());
-                }
-            }
-            System.out.println();
-        }
-    }
-
-    public void list(){
-        int gardenHeight = gardenProperties.getGardenHeight();
-        int gardenWidth = gardenProperties.getGardenWidth();
-
-        System.out.println("\nplantsArray:");
-        for (Plants item : plantsArray) {
-            System.out.println(item.toString());
-        }
-
-        System.out.println("\nplantsGarden:");
-        for (int i = 0; i < gardenHeight; i++) {
-            for (int j = 0; j < gardenWidth; j++) {
-                try {
-                    System.out.println(plantsGarden[j][i].toString());
-                } catch (NullPointerException e) {
-                    System.out.println("none");
-                }
-            }
         }
     }
 
@@ -272,6 +232,58 @@ public class PlantsPositions {
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+
+    public int getPlantsNumber(){
+        return plantsArray.size();
+    }
+
+    public boolean isEmpty(){
+        return plantsArray.isEmpty();
+    }
+
+    public boolean isFull(){
+        return (plantsArray.size() == gardenProperties.getMaxPlantsNumber());
+    }
+
+    public void draw() {
+        //TODO colors?
+        int gardenHeight = gardenProperties.getGardenHeight();
+        int gardenWidth = gardenProperties.getGardenWidth();
+
+        System.out.println("\nplantsGarden drawing:");
+        for (int i = 0; i < gardenHeight; i++) {
+            for (int j = 0; j < gardenWidth; j++) {
+                if (plantsGarden[j][i] == null) {
+                    //System.out.print("O");
+                    System.out.print("(X,Y)");
+                } else {
+                    System.out.print(plantsGarden[j][i].getCoordinates().toString());
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public void list(){
+        int gardenHeight = gardenProperties.getGardenHeight();
+        int gardenWidth = gardenProperties.getGardenWidth();
+
+        System.out.println("\nplantsArray:");
+        for (Plants item : plantsArray) {
+            System.out.println(item.toString());
+        }
+
+        System.out.println("\nplantsGarden:");
+        for (int i = 0; i < gardenHeight; i++) {
+            for (int j = 0; j < gardenWidth; j++) {
+                try {
+                    System.out.println(plantsGarden[j][i].toString());
+                } catch (NullPointerException e) {
+                    System.out.println("none");
                 }
             }
         }

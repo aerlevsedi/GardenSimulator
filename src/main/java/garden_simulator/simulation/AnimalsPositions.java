@@ -1,11 +1,10 @@
 package garden_simulator.simulation;
 
-import garden_simulator.Coordinates;
+import garden_simulator.coordinates.Coordinates;
 import garden_simulator.animals.Animal;
 import garden_simulator.animals.Bee;
 import garden_simulator.animals.Borer;
 import garden_simulator.animals.Mole;
-import garden_simulator.plants.Plants;
 
 import java.util.Random;
 

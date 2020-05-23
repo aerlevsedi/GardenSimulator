@@ -1,4 +1,4 @@
-package garden_simulator;
+package garden_simulator.coordinates;
 
 public class Coordinates {
     private int X;

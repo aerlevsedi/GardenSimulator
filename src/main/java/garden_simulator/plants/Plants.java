@@ -1,8 +1,8 @@
 package garden_simulator.plants;
 
 import garden_simulator.animals.Animal;
-import garden_simulator.Coordinates;
-import garden_simulator.WeatherConditions;
+import garden_simulator.coordinates.Coordinates;
+import garden_simulator.weather.WeatherConditions;
 
 public abstract class Plants {
     protected Coordinates coordinates;

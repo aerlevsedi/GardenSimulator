@@ -5,8 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class UserInteractor {
+    //TODO scanner
+    //TODO check exceptions!
 
     public GardenProperties askForGardenDimensions() throws IOException {
+
         int gardenWidth = 2;
         int gardenHeight = 2;
 
@@ -85,7 +88,7 @@ public class UserInteractor {
             }
         }
 
-        gardenProp.setPlantsNumber(plantsNumber);
+        gardenProp.setPlantsStaringNumber(plantsNumber);
     }
 
 }

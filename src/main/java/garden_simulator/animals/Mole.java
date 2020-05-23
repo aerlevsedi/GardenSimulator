@@ -1,6 +1,6 @@
 package garden_simulator.animals;
 
-import garden_simulator.Coordinates;
+import garden_simulator.coordinates.Coordinates;
 
 public class Mole extends Animal{
     public Mole(Coordinates coors){
