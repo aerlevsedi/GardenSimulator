@@ -41,7 +41,7 @@ public class RandomPlantsPositionGenerator {
             plantsByCoordinates.put(coordinate, randomPlantGenerator.getRandomPlant());
         }
 
-        return new PlantsPositions(gardenProperties, plantsByCoordinates)
+        return new PlantsPositions(gardenProperties, plantsByCoordinates);
     }
 
     List<Coordinates> getAllPossibleCoordinates() {

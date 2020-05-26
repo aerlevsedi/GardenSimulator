@@ -27,6 +27,6 @@ public class Fruit extends Plants {
 
     @Override
     public String toString() {
-        return "Fruit[ coors: (" + coordinates.getX() + ", " + coordinates.getY() + "); currentLife: " + currentLife + "; growthPhase: " + growthPhase + ";]";
+        return "Fruit[currentLife: " + currentLife + "; growthPhase: " + growthPhase + ";]";
     }
 }

@@ -25,6 +25,6 @@ public class Flower extends Plants {
 
     @Override
     public String toString() {
-        return "Flower[ coors: (" + coordinates.getX() + ", " + coordinates.getY() + "); currentLife: " + currentLife + "; growthPhase: " + growthPhase + ";]";
+        return "Flower[currentLife: " + currentLife + "; growthPhase: " + growthPhase + ";]";
     }
 }
