@@ -5,12 +5,10 @@ import garden_simulator.coordinates.Coordinates;
 import garden_simulator.weather.WeatherConditions;
 
 public abstract class Plants {
-    protected Coordinates coordinates;
     protected int currentLife;
     protected int growthPhase;
 
-    public Plants(Coordinates coors) {
-        coordinates = coors;
+    public Plants() {
         currentLife = 50;
         growthPhase = 0;
     }
@@ -46,10 +44,5 @@ public abstract class Plants {
     public boolean canReproduce() {
 
         return (growthPhase == 5 && currentLife >= 70);
-    }
-
-
-    public Coordinates getCoordinates() {
-        return coordinates;
     }
 }
