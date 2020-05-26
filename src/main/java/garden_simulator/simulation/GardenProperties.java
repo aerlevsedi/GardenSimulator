@@ -1,33 +1,50 @@
 package garden_simulator.simulation;
 
 public class GardenProperties {
-    private final int gardenWidth;
-    private final int gardenHeight;
-    private int plantsStartingNumber;
+    private final GardenDimensions dimensions;
+    private final int plantsStartingNumber;
 
-    public GardenProperties(int width, int height) {
-        gardenWidth = width;
-        gardenHeight = height;
+    public GardenProperties(GardenDimensions dimensions, int plantsStartingNumber) {
+        this.dimensions = dimensions;
+        this.plantsStartingNumber = plantsStartingNumber;
     }
 
     public int getGardenHeight() {
-        return gardenHeight;
+        return dimensions.getHeight();
     }
 
     public int getGardenWidth() {
-        return gardenWidth;
+        return dimensions.getWidth();
     }
 
-    public void setPlantsStaringNumber(int plantsNumber) {
-        this.plantsStartingNumber = plantsNumber;
-    }
-
-    public int getPlantsStartingNumberNumber() {
+    public int getPlantsStartingNumber() {
         return plantsStartingNumber;
     }
 
     public int getMaxPlantsNumber() {
-        return gardenHeight * gardenWidth;
+        return dimensions.getMaxPlantsNumber();
     }
 
+
+    public static class GardenDimensions {
+        private final int width;
+        private final int height;
+
+        public GardenDimensions(int width, int height) {
+            this.width = width;
+            this.height = height;
+        }
+
+        public int getWidth() {
+            return width;
+        }
+
+        public int getHeight() {
+            return height;
+        }
+
+        public int getMaxPlantsNumber() {
+            return width * height;
+        }
+    }
 }

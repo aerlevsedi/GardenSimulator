@@ -10,9 +10,9 @@ public class Garden {
 
     public WeatherConditions weatherConditions;
 
-    public Garden(GardenProperties properties) {
+    public Garden(GardenProperties properties, PlantsPositions plantsPositions) {
         gardenProperties = properties;
-        plantsPositions = new PlantsPositions(gardenProperties);
+        this.plantsPositions = plantsPositions;
         animalsPositions = new AnimalsPositions(gardenProperties);
         weatherConditions = new WeatherConditions();
     }

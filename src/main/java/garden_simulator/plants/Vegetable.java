@@ -5,8 +5,7 @@ import garden_simulator.animals.Animal;
 import garden_simulator.weather.WeatherConditions;
 
 public class Vegetable extends Plants {
-    public Vegetable(Coordinates coors) {
-        super(coors);
+    public Vegetable() {
     }
 
     public void evalWeatherImpact(WeatherConditions weather) {

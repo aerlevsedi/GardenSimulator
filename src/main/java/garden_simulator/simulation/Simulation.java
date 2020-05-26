@@ -4,13 +4,10 @@ import java.io.IOException;
 
 public class Simulation {
 
-    public void run() throws IOException {
-        UserInteractor interactor = new UserInteractor();
-        GardenProperties gardenProperties = interactor.askForGardenDimensions();
-
-        interactor.askForNumberOfPlants(gardenProperties);
-
-        Garden garden = new Garden(gardenProperties);
+    public void run(GardenProperties gardenProperties) throws IOException {
+        RandomPlantsPositionGenerator randomPlantsPositionGenerator =
+                new RandomPlantsPositionGenerator(gardenProperties, new RandomPlantGenerator());
+        Garden garden = new Garden(gardenProperties, randomPlantsPositionGenerator.generate());
 
         while (!garden.isEmpty() && !garden.isFull()) {
             garden.draw();
