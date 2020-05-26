@@ -81,6 +81,7 @@ public class PlantsPositions {
 
                     boolean canReproduce = plantsByCoordinates.get(coors).canReproduce();
 
+
                     if (canReproduce) {
                         //TODO put this into functions
                         Plants reproducingPlant = plantsByCoordinates.get(coors);
@@ -94,20 +95,19 @@ public class PlantsPositions {
                             boolean isPlaceAvailable = (!plantsByCoordinates.containsKey(newCoors));
 
                             if (isPlaceAvailable) {
-
                                 if (reproducingPlant instanceof Flower) {
                                     Plants plant = new Flower();
-                                    plantsByCoordinates.put(coors, plant);
+                                    plantsByCoordinates.put(newCoors, plant);
                                     break;
                                 }
                                 if (reproducingPlant instanceof Vegetable) {
                                     Plants plant = new Vegetable();
-                                    plantsByCoordinates.put(coors, plant);
+                                    plantsByCoordinates.put(newCoors, plant);
                                     break;
                                 }
                                 if (reproducingPlant instanceof Fruit) {
                                     Plants plant = new Fruit();
-                                    plantsByCoordinates.put(coors, plant);
+                                    plantsByCoordinates.put(newCoors, plant);
                                     break;
                                 }
                             }
@@ -125,17 +125,17 @@ public class PlantsPositions {
 
                                 if (reproducingPlant instanceof Flower) {
                                     Plants plant = new Flower();
-                                    plantsByCoordinates.put(coors, plant);
+                                    plantsByCoordinates.put(newCoors, plant);
                                     break;
                                 }
                                 if (reproducingPlant instanceof Vegetable) {
                                     Plants plant = new Vegetable();
-                                    plantsByCoordinates.put(coors, plant);
+                                    plantsByCoordinates.put(newCoors, plant);
                                     break;
                                 }
                                 if (reproducingPlant instanceof Fruit) {
                                     Plants plant = new Fruit();
-                                    plantsByCoordinates.put(coors, plant);
+                                    plantsByCoordinates.put(newCoors, plant);
                                     break;
                                 }
                             }
@@ -154,17 +154,17 @@ public class PlantsPositions {
 
                                 if (reproducingPlant instanceof Flower) {
                                     Plants plant = new Flower();
-                                    plantsByCoordinates.put(coors, plant);
+                                    plantsByCoordinates.put(newCoors, plant);
                                     break;
                                 }
                                 if (reproducingPlant instanceof Vegetable) {
                                     Plants plant = new Vegetable();
-                                    plantsByCoordinates.put(coors, plant);
+                                    plantsByCoordinates.put(newCoors, plant);
                                     break;
                                 }
                                 if (reproducingPlant instanceof Fruit) {
                                     Plants plant = new Fruit();
-                                    plantsByCoordinates.put(coors, plant);
+                                    plantsByCoordinates.put(newCoors, plant);
                                     break;
                                 }
                             }
@@ -183,17 +183,17 @@ public class PlantsPositions {
 
                                 if (reproducingPlant instanceof Flower) {
                                     Plants plant = new Flower();
-                                    plantsByCoordinates.put(coors, plant);
+                                    plantsByCoordinates.put(newCoors, plant);
                                     break;
                                 }
                                 if (reproducingPlant instanceof Vegetable) {
                                     Plants plant = new Vegetable();
-                                    plantsByCoordinates.put(coors, plant);
+                                    plantsByCoordinates.put(newCoors, plant);
                                     break;
                                 }
                                 if (reproducingPlant instanceof Fruit) {
                                     Plants plant = new Fruit();
-                                    plantsByCoordinates.put(coors, plant);
+                                    plantsByCoordinates.put(newCoors, plant);
                                     break;
                                 }
                             }
@@ -244,17 +244,6 @@ public class PlantsPositions {
         System.out.println("\nplantsArray:");
         for (Plants item : plantsByCoordinates.values()) {
             System.out.println(item.toString());
-        }
-
-        System.out.println("\nplantsGarden:");
-        for (int i = 0; i < gardenHeight; i++) {
-            for (int j = 0; j < gardenWidth; j++) {
-                try {
-                    System.out.println(plantsByCoordinates.get(new Coordinates(j, i)).toString());
-                } catch (NullPointerException e) {
-                    System.out.println("none");
-                }
-            }
         }
     }
 }

@@ -9,6 +9,10 @@ public class Simulation {
                 new RandomPlantsPositionGenerator(gardenProperties, new RandomPlantGenerator());
         Garden garden = new Garden(gardenProperties, randomPlantsPositionGenerator.generate());
 
+        System.out.println("Sim: " + gardenProperties.getGardenHeight() + " " + gardenProperties.getGardenWidth() + " " + gardenProperties.getPlantsStartingNumber());
+
+        garden.listPlants();
+
         while (!garden.isEmpty() && !garden.isFull()) {
             garden.draw();
             garden.listPlants();

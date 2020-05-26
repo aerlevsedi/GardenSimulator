@@ -42,15 +42,17 @@ public class UserInteractor {
     }
 
     public int askForNumberOfPlants(GardenDimensions gardenDimensions) {
+
         int maxPlantsNumber = gardenDimensions.getMaxPlantsNumber();
-        IntPredicate maxPlantsNumberValidation = value -> value > 1 && value <= maxPlantsNumber;
-        askForInteger(
+
+        IntPredicate startingPlantsNumberValidation = value -> value >= 1 && value <= maxPlantsNumber;
+        int startingPlantsNumber = askForInteger(
                 "Number of plants (needs to be <= " + maxPlantsNumber + ")",
-                maxPlantsNumberValidation
+                startingPlantsNumberValidation
         );
 
 
-        return maxPlantsNumber;
+        return startingPlantsNumber;
     }
 
 }
