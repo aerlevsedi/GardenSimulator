@@ -1,4 +1,9 @@
-package garden_simulator.plants;
+package garden_simulator.simulation;
+
+import garden_simulator.plants.Flower;
+import garden_simulator.plants.Fruit;
+import garden_simulator.plants.Plants;
+import garden_simulator.plants.Vegetable;
 
 import java.util.ArrayList;
 import java.util.Arrays;

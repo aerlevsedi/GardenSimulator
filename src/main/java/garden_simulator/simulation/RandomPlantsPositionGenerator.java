@@ -1,8 +1,7 @@
-package garden_simulator.plants;
+package garden_simulator.simulation;
 
 import garden_simulator.coordinates.Coordinates;
-import garden_simulator.simulation.GardenProperties;
-import garden_simulator.simulation.PlantsPositions;
+import garden_simulator.plants.Plants;
 
 import java.util.*;
 
