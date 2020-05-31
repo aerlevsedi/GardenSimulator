@@ -17,9 +17,8 @@ public class Simulation {
             garden.draw();
             garden.listPlants();
             //garden.listAnimals();
-
+            garden.stats();
             garden.update();
-
             //TODO: nice logs with dayNumber, number of plants etc
         }
         garden.draw();

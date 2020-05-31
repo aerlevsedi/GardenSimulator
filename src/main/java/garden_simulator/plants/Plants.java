@@ -13,6 +13,11 @@ public abstract class Plants {
         growthPhase = 0;
     }
 
+
+    public int getGrowthPhase() {
+        return growthPhase;
+    }
+
     public void evalWeatherImpact(WeatherConditions weather) {
         //to override, depends on class
     }
@@ -37,7 +42,7 @@ public abstract class Plants {
 
     public boolean shouldDie() {
 
-        return (currentLife <= 0);
+        return ((growthPhase==5 && currentLife >= 100) || currentLife<=0);
 
     }
 
@@ -45,4 +50,6 @@ public abstract class Plants {
 
         return (growthPhase == 5 && currentLife >= 70);
     }
+
+
 }

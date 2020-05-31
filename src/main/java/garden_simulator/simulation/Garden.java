@@ -23,8 +23,9 @@ public class Garden {
     }
 
     public void update() {
-        plantsPositions.killPlants();
         plantsPositions.reproduce();
+
+        plantsPositions.killPlants();
         animalsPositions.move();
         weatherConditions = new WeatherConditions();
         impact();
@@ -51,6 +52,9 @@ public class Garden {
     }
 
     public void stats() {
-        //TODO nice stats with number of plants, number of plants in each phase, max, etc
+
+        //TODO finish stats
+        plantsPositions.countPlants();
+
     }
 }

@@ -18,6 +18,11 @@ public class PlantsPositions {
     private final Map<Coordinates, Plants> plantsByCoordinates;
     private final Random randomGenerator = new Random();
 
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_RESET = "\u001B[0m";
+
     public PlantsPositions(GardenProperties gardenProperties, Map<Coordinates, Plants> plantsByCoordinates) {
         this.gardenProperties = gardenProperties;
         this.plantsByCoordinates = plantsByCoordinates;
@@ -68,7 +73,6 @@ public class PlantsPositions {
 
     public void reproduce() {
 
-        //TODO plants dying after they reproduce
         for (int i = 0; i < gardenProperties.getGardenHeight(); i++) {
             for (int j = 0; j < gardenProperties.getGardenWidth(); j++) {
 
@@ -81,123 +85,41 @@ public class PlantsPositions {
 
                     boolean canReproduce = plantsByCoordinates.get(coors).canReproduce();
 
-
                     if (canReproduce) {
-                        //TODO put this into functions
+
                         Plants reproducingPlant = plantsByCoordinates.get(coors);
+                        if (plantsByCoordinates.size() >= gardenProperties.getMaxPlantsNumber())
+                            break;
 
                         for (int m = j - 1; m >= 0; m--) {
 
-                            if (plantsByCoordinates.size() >= gardenProperties.getMaxPlantsNumber())
+                            Coordinates newCoors = new Coordinates(m, i);
+                            if(reproductionCheck(reproducingPlant,newCoors));
                                 break;
 
-                            Coordinates newCoors = new Coordinates(m, i);
-                            boolean isPlaceAvailable = (!plantsByCoordinates.containsKey(newCoors));
-
-                            if (isPlaceAvailable) {
-                                if (reproducingPlant instanceof Flower) {
-                                    Plants plant = new Flower();
-                                    plantsByCoordinates.put(newCoors, plant);
-                                    break;
-                                }
-                                if (reproducingPlant instanceof Vegetable) {
-                                    Plants plant = new Vegetable();
-                                    plantsByCoordinates.put(newCoors, plant);
-                                    break;
-                                }
-                                if (reproducingPlant instanceof Fruit) {
-                                    Plants plant = new Fruit();
-                                    plantsByCoordinates.put(newCoors, plant);
-                                    break;
-                                }
-                            }
                         }
 
                         for (int m = j + 1; m <= gardenProperties.getGardenWidth() - 1; m++) {
 
-                            if (plantsByCoordinates.size() >= gardenProperties.getMaxPlantsNumber())
-                                break;
-
                             Coordinates newCoors = new Coordinates(m, i);
-                            boolean isPlaceAvailable = (!plantsByCoordinates.containsKey(newCoors));
-
-                            if (isPlaceAvailable) {
-
-                                if (reproducingPlant instanceof Flower) {
-                                    Plants plant = new Flower();
-                                    plantsByCoordinates.put(newCoors, plant);
-                                    break;
-                                }
-                                if (reproducingPlant instanceof Vegetable) {
-                                    Plants plant = new Vegetable();
-                                    plantsByCoordinates.put(newCoors, plant);
-                                    break;
-                                }
-                                if (reproducingPlant instanceof Fruit) {
-                                    Plants plant = new Fruit();
-                                    plantsByCoordinates.put(newCoors, plant);
-                                    break;
-                                }
-                            }
-
+                            if(reproductionCheck(reproducingPlant,newCoors));
+                                break;
                         }
 
                         for (int m = i - 1; m >= 0; m--) {
-
-                            if (plantsByCoordinates.size() >= gardenProperties.getMaxPlantsNumber())
-                                break;
-
                             Coordinates newCoors = new Coordinates(j, m);
-                            boolean isPlaceAvailable = (!plantsByCoordinates.containsKey(newCoors));
-
-                            if (isPlaceAvailable) {
-
-                                if (reproducingPlant instanceof Flower) {
-                                    Plants plant = new Flower();
-                                    plantsByCoordinates.put(newCoors, plant);
-                                    break;
-                                }
-                                if (reproducingPlant instanceof Vegetable) {
-                                    Plants plant = new Vegetable();
-                                    plantsByCoordinates.put(newCoors, plant);
-                                    break;
-                                }
-                                if (reproducingPlant instanceof Fruit) {
-                                    Plants plant = new Fruit();
-                                    plantsByCoordinates.put(newCoors, plant);
-                                    break;
-                                }
-                            }
-
+                            if(reproductionCheck(reproducingPlant,newCoors));
+                                break;
                         }
 
                         for (int m = i + 1; m <= gardenProperties.getGardenHeight() - 1; m++) {
 
-                            if (plantsByCoordinates.size() >= gardenProperties.getMaxPlantsNumber())
+                            Coordinates newCoors = new Coordinates(j, m);
+                            if(reproductionCheck(reproducingPlant,newCoors));
                                 break;
 
-                            Coordinates newCoors = new Coordinates(j, m);
-                            boolean isPlaceAvailable = (!plantsByCoordinates.containsKey(newCoors));
-
-                            if (isPlaceAvailable) {
-
-                                if (reproducingPlant instanceof Flower) {
-                                    Plants plant = new Flower();
-                                    plantsByCoordinates.put(newCoors, plant);
-                                    break;
-                                }
-                                if (reproducingPlant instanceof Vegetable) {
-                                    Plants plant = new Vegetable();
-                                    plantsByCoordinates.put(newCoors, plant);
-                                    break;
-                                }
-                                if (reproducingPlant instanceof Fruit) {
-                                    Plants plant = new Fruit();
-                                    plantsByCoordinates.put(newCoors, plant);
-                                    break;
-                                }
-                            }
                         }
+
                     }
                 }
             }
@@ -217,7 +139,6 @@ public class PlantsPositions {
     }
 
     public void draw() {
-        //TODO colors?
         int gardenHeight = gardenProperties.getGardenHeight();
         int gardenWidth = gardenProperties.getGardenWidth();
 
@@ -226,11 +147,23 @@ public class PlantsPositions {
             for (int j = 0; j < gardenWidth; j++) {
 
                 Coordinates coors = new Coordinates(j, i);
+
                 if (!plantsByCoordinates.containsKey(coors)) {
                     //System.out.print("O");
                     System.out.print("(X,Y)");
                 } else {
-                    System.out.print(coors.toString());
+
+                    Plants item=plantsByCoordinates.get(coors);
+                    if(item instanceof Fruit) {
+                        System.out.print(ANSI_BLUE + coors.toString() + ANSI_RESET);
+                    }
+                    else {
+                        if (item instanceof Vegetable) {
+                            System.out.print(ANSI_PURPLE + coors.toString() + ANSI_RESET);
+                        }
+                        else if (item instanceof Flower)
+                            System.out.print(ANSI_YELLOW + coors.toString() + ANSI_RESET);
+                    }
                 }
             }
             System.out.println();
@@ -245,5 +178,94 @@ public class PlantsPositions {
         for (Plants item : plantsByCoordinates.values()) {
             System.out.println(item.toString());
         }
+    }
+
+    public boolean reproductionCheck(Plants reproducingPlant, Coordinates newCoors)
+    {
+            boolean isPlaceAvailable = (!plantsByCoordinates.containsKey(newCoors));
+
+            if (isPlaceAvailable) {
+                if (reproducingPlant instanceof Flower) {
+                    Plants plant = new Flower();
+                    plantsByCoordinates.put(newCoors, plant);
+
+                    return true;
+
+                }
+                else {
+                    if (reproducingPlant instanceof Vegetable) {
+                        Plants plant = new Vegetable();
+                        plantsByCoordinates.put(newCoors, plant);
+                        return true;
+
+                    }
+                    else {
+                        if (reproducingPlant instanceof Fruit) {
+                            Plants plant = new Fruit();
+                            plantsByCoordinates.put(newCoors, plant);
+                            return true;
+
+                        }
+                    }
+                }
+            }
+            return false;
+    }
+    public void countPlants ()
+    {
+        int countFlowers=0,countFruits=0,countVegetables=0,phase1=0,phase2=0,phase3=0,phase4=0,phase5=0,phase0=0;
+        for (Plants item : plantsByCoordinates.values()) {
+            if(item instanceof Flower)
+                countFlowers++;
+
+            if(item instanceof Fruit)
+                    countFruits++;
+
+            if(item instanceof Vegetable)
+                    countVegetables++;
+                /*
+            int Phase=item.getGrowthPhase();
+
+            /
+            if(Phase==0)
+                phase0++;
+            if(Phase==1)
+               phase1++;
+            if(Phase==2)
+                phase2++;
+            if(Phase==3)
+                phase3++;
+            if(Phase==4)
+                phase4++;
+            if(Phase==5)
+                phase5++;
+
+             */
+
+
+        }
+
+
+        System.out.println(ANSI_YELLOW + "Current number of flowers "+ countFlowers + ANSI_RESET);
+        System.out.println(ANSI_BLUE+ "Current number of fruits "+ countFruits + ANSI_RESET);
+        System.out.println(ANSI_PURPLE + "Current number of vegetables "+ countVegetables + ANSI_RESET);
+        /*
+        System.out.println("Number of plants in Phase 0: "+phase0);
+        System.out.println("Number of plants in Phase 1: "+phase1);
+        System.out.println("Number of plants in Phase 2: "+phase2);
+        System.out.println("Number of plants in Phase 3: "+phase3);
+        System.out.println("Number of plants in Phase 4: "+phase4);
+        System.out.println("Number of plants in Phase 5: "+phase5);
+
+         */
+
+        /*System.out.println("Number of plants in Phase 1: "+phase1);
+        System.out.println("Number of plants in Phase 2: "+phase2);
+        System.out.println("Number of plants in Phase 3: "+phase3);
+        System.out.println("Number of plants in Phase 4: "+phase4);
+        System.out.println("Number of plants in Phase 5: "+phase5);
+
+         */
+
     }
 }

@@ -9,8 +9,8 @@ public class Flower extends Plants {
     }
 
     public void evalWeatherImpact(WeatherConditions weather) {
-        double frost = -0.8 * weather.getFrost();
-        double wind = -0.2 * weather.getWind();
+        double frost = -1 * weather.getFrost();
+        double wind = -0.3 * weather.getWind();
         double sun = 3 * weather.getSun();
         double rain = 0.3 * weather.getRain();
 

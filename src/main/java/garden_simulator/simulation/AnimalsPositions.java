@@ -51,6 +51,7 @@ public class AnimalsPositions {
     }
 
     public void move() {
+
         for (Animal animal : animalsArray) {
             animal.move();
         }

@@ -10,17 +10,16 @@ public class Vegetable extends Plants {
 
     public void evalWeatherImpact(WeatherConditions weather) {
 
-        double frost = -0.4 * weather.getFrost();
+        double frost = -1 * weather.getFrost();
         double wind = -0.2 * weather.getWind();
         double sun = 1 * weather.getSun();
-        double rain = 0.6 * weather.getRain();
+        double rain = 0.2 * weather.getRain();
 
         currentLife += (int) (frost + wind + sun + rain);
         updateGrowthPhase();
     }
 
     public void evalAnimalImpact(Animal animal) {
-        //TODO
         currentLife += animal.getImpact();
         updateGrowthPhase();
     }
