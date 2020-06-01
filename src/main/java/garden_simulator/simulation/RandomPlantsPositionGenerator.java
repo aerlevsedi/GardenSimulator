@@ -35,6 +35,8 @@ public class RandomPlantsPositionGenerator {
     public PlantsPositions generate() {
         List<Coordinates> allPossibleCoordinates = getAllPossibleCoordinates();
 
+        Collections.shuffle(allPossibleCoordinates);
+
         Map<Coordinates, Plants> plantsByCoordinates = new HashMap<>();
         System.out.println("PlantsStartingNumber " + gardenProperties.getPlantsStartingNumber());
         for (int i = 0; i < gardenProperties.getPlantsStartingNumber(); i++) {

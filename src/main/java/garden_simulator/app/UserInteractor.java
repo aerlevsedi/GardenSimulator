@@ -17,8 +17,8 @@ public class UserInteractor {
 
     public GardenDimensions askForGardenDimensions() {
 
-        int gardenWidth = askForInteger("Garden width", value -> value > 1);
-        int gardenHeight = askForInteger("Garden height", value -> value > 1);
+        int gardenWidth = askForInteger("Garden width (needs to be > 1)", value -> value > 1);
+        int gardenHeight = askForInteger("Garden height (needs to be > 1)", value -> value > 1);
 
         return new GardenDimensions(gardenWidth, gardenHeight);
     }

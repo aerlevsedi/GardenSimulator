@@ -28,16 +28,30 @@ public abstract class Animal {
 
         int newX;
         int newY;
+        int checkLopp = 8;
 
         do{
             newX = coordinates.getX() + (rand_direction.nextInt(3) - 1) * (rand_length.nextInt(range + 1));
+            checkLopp--;
         }
-        while (newX > width + 3 || newX < -3);
+        while ((newX > width + 3 || newX < -3) && checkLopp>0);
 
+        if(checkLopp==0){
+            newX = coordinates.getX();
+        }
+
+
+        checkLopp=8;
         do{
             newY = coordinates.getY() + (rand_direction.nextInt(3) - 1) * (rand_length.nextInt(range + 1));
+            checkLopp--;
         }
-        while (newY > height + 3 || newY < -3);
+        while ((newY > height + 3 || newY < -3) && checkLopp > 0);
+
+        if(checkLopp==0){
+            newY = coordinates.getY();
+        }
+
 
         coordinates = new Coordinates(newX, newY);
     }

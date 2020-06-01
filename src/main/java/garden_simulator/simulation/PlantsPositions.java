@@ -37,7 +37,7 @@ public class PlantsPositions {
             boolean isAnimalInGarden = (X >= 0 && X < gardenProperties.getGardenWidth() && Y >= 0 && Y < gardenProperties.getGardenHeight());
             if (isAnimalInGarden) {
                 Coordinates coors = new Coordinates(X, Y);
-                if(plantsByCoordinates.containsKey(coors)){
+                if (plantsByCoordinates.containsKey(coors)) {
                     plantsByCoordinates.get(coors).evalAnimalImpact(animal);
                 }
             }
@@ -94,29 +94,29 @@ public class PlantsPositions {
                         for (int m = j - 1; m >= 0; m--) {
 
                             Coordinates newCoors = new Coordinates(m, i);
-                            if(reproductionCheck(reproducingPlant,newCoors));
-                                break;
+                            if (reproductionCheck(reproducingPlant, newCoors)) ;
+                            break;
 
                         }
 
                         for (int m = j + 1; m <= gardenProperties.getGardenWidth() - 1; m++) {
 
                             Coordinates newCoors = new Coordinates(m, i);
-                            if(reproductionCheck(reproducingPlant,newCoors));
-                                break;
+                            if (reproductionCheck(reproducingPlant, newCoors)) ;
+                            break;
                         }
 
                         for (int m = i - 1; m >= 0; m--) {
                             Coordinates newCoors = new Coordinates(j, m);
-                            if(reproductionCheck(reproducingPlant,newCoors));
-                                break;
+                            if (reproductionCheck(reproducingPlant, newCoors)) ;
+                            break;
                         }
 
                         for (int m = i + 1; m <= gardenProperties.getGardenHeight() - 1; m++) {
 
                             Coordinates newCoors = new Coordinates(j, m);
-                            if(reproductionCheck(reproducingPlant,newCoors));
-                                break;
+                            if (reproductionCheck(reproducingPlant, newCoors)) ;
+                            break;
 
                         }
 
@@ -153,15 +153,13 @@ public class PlantsPositions {
                     System.out.print("(X,Y)");
                 } else {
 
-                    Plants item=plantsByCoordinates.get(coors);
-                    if(item instanceof Fruit) {
+                    Plants item = plantsByCoordinates.get(coors);
+                    if (item instanceof Fruit) {
                         System.out.print(ANSI_BLUE + coors.toString() + ANSI_RESET);
-                    }
-                    else {
+                    } else {
                         if (item instanceof Vegetable) {
                             System.out.print(ANSI_PURPLE + coors.toString() + ANSI_RESET);
-                        }
-                        else if (item instanceof Flower)
+                        } else if (item instanceof Flower)
                             System.out.print(ANSI_YELLOW + coors.toString() + ANSI_RESET);
                     }
                 }
@@ -180,49 +178,46 @@ public class PlantsPositions {
         }
     }
 
-    public boolean reproductionCheck(Plants reproducingPlant, Coordinates newCoors)
-    {
-            boolean isPlaceAvailable = (!plantsByCoordinates.containsKey(newCoors));
+    public boolean reproductionCheck(Plants reproducingPlant, Coordinates newCoors) {
+        boolean isPlaceAvailable = (!plantsByCoordinates.containsKey(newCoors));
 
-            if (isPlaceAvailable) {
-                if (reproducingPlant instanceof Flower) {
-                    Plants plant = new Flower();
+        if (isPlaceAvailable) {
+            if (reproducingPlant instanceof Flower) {
+                Plants plant = new Flower();
+                plantsByCoordinates.put(newCoors, plant);
+
+                return true;
+
+            } else {
+                if (reproducingPlant instanceof Vegetable) {
+                    Plants plant = new Vegetable();
                     plantsByCoordinates.put(newCoors, plant);
-
                     return true;
 
-                }
-                else {
-                    if (reproducingPlant instanceof Vegetable) {
-                        Plants plant = new Vegetable();
+                } else {
+                    if (reproducingPlant instanceof Fruit) {
+                        Plants plant = new Fruit();
                         plantsByCoordinates.put(newCoors, plant);
                         return true;
 
                     }
-                    else {
-                        if (reproducingPlant instanceof Fruit) {
-                            Plants plant = new Fruit();
-                            plantsByCoordinates.put(newCoors, plant);
-                            return true;
-
-                        }
-                    }
                 }
             }
-            return false;
+        }
+        return false;
     }
-    public void countPlants ()
-    {
-        int countFlowers=0,countFruits=0,countVegetables=0,phase1=0,phase2=0,phase3=0,phase4=0,phase5=0,phase0=0;
+
+    public void countPlants() {
+        int countFlowers = 0, countFruits = 0, countVegetables = 0, phase1 = 0, phase2 = 0, phase3 = 0, phase4 = 0, phase5 = 0, phase0 = 0;
         for (Plants item : plantsByCoordinates.values()) {
-            if(item instanceof Flower)
+            if (item instanceof Flower)
                 countFlowers++;
 
-            if(item instanceof Fruit)
-                    countFruits++;
+            if (item instanceof Fruit)
+                countFruits++;
 
-            if(item instanceof Vegetable)
-                    countVegetables++;
+            if (item instanceof Vegetable)
+                countVegetables++;
                 /*
             int Phase=item.getGrowthPhase();
 
@@ -246,9 +241,9 @@ public class PlantsPositions {
         }
 
 
-        System.out.println(ANSI_YELLOW + "Current number of flowers "+ countFlowers + ANSI_RESET);
-        System.out.println(ANSI_BLUE+ "Current number of fruits "+ countFruits + ANSI_RESET);
-        System.out.println(ANSI_PURPLE + "Current number of vegetables "+ countVegetables + ANSI_RESET);
+        System.out.println(ANSI_YELLOW + "Current number of flowers " + countFlowers + ANSI_RESET);
+        System.out.println(ANSI_BLUE + "Current number of fruits " + countFruits + ANSI_RESET);
+        System.out.println(ANSI_PURPLE + "Current number of vegetables " + countVegetables + ANSI_RESET);
         /*
         System.out.println("Number of plants in Phase 0: "+phase0);
         System.out.println("Number of plants in Phase 1: "+phase1);

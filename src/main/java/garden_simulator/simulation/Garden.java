@@ -24,7 +24,6 @@ public class Garden {
 
     public void update() {
         plantsPositions.reproduce();
-
         plantsPositions.killPlants();
         animalsPositions.move();
         weatherConditions = new WeatherConditions();
@@ -52,7 +51,6 @@ public class Garden {
     }
 
     public void stats() {
-
         //TODO finish stats
         plantsPositions.countPlants();
 

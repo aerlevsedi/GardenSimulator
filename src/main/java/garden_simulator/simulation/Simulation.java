@@ -15,7 +15,7 @@ public class Simulation {
 
         while (!garden.isEmpty() && !garden.isFull()) {
             garden.draw();
-            garden.listPlants();
+            //garden.listPlants();
             //garden.listAnimals();
             garden.stats();
             garden.update();

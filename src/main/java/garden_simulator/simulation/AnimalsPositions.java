@@ -10,9 +10,10 @@ import java.util.Random;
 
 public class AnimalsPositions {
     public Animal[] animalsArray;
+    public int animalsNumber;
 
     public AnimalsPositions(GardenProperties gardenProperties) {
-        int animalsNumber = gardenProperties.getMaxPlantsNumber();
+        animalsNumber = gardenProperties.getMaxPlantsNumber();
         animalsArray = new Animal[animalsNumber];
         for (int i = 0; i < animalsNumber; i++) {
             Random coor = new Random();
@@ -51,7 +52,6 @@ public class AnimalsPositions {
     }
 
     public void move() {
-
         for (Animal animal : animalsArray) {
             animal.move();
         }
