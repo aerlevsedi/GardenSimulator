@@ -3,8 +3,7 @@ package garden_simulator.animals;
 import garden_simulator.coordinates.Coordinates;
 
 public class Bee extends Animal {
-    public Bee(Coordinates coors) {
-        super(coors);
+    public Bee() {
 
         impact = 20;
         range = (int) (0.3 * width * height);
@@ -14,7 +13,9 @@ public class Bee extends Animal {
     }
 
     @Override
-    public String toString() { //can it be in superclass?
-        return "Bee[ coors: (" + coordinates.getX() + ", " + coordinates.getY() + ");]";
+    public String toString() {
+        return "Bee ";
     }
+
+
 }

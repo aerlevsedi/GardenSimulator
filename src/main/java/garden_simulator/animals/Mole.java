@@ -3,8 +3,7 @@ package garden_simulator.animals;
 import garden_simulator.coordinates.Coordinates;
 
 public class Mole extends Animal {
-    public Mole(Coordinates coors) {
-        super(coors);
+    public Mole() {
 
         impact = -10;
         range = (int) (0.2 * width * height);
@@ -14,6 +13,6 @@ public class Mole extends Animal {
 
     @Override
     public String toString() {
-        return "Mole[ coors: (" + coordinates.getX() + ", " + coordinates.getY() + ");]";
+        return "Mole";
     }
 }

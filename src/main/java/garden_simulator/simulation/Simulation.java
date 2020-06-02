@@ -7,7 +7,11 @@ public class Simulation {
     public void run(GardenProperties gardenProperties) throws IOException {
         RandomPlantsPositionGenerator randomPlantsPositionGenerator =
                 new RandomPlantsPositionGenerator(gardenProperties, new RandomPlantGenerator());
-        Garden garden = new Garden(gardenProperties, randomPlantsPositionGenerator.generate());
+
+        RandomAnimalsPositionGenerator randomAnimalsPositionGenerator =
+                new RandomAnimalsPositionGenerator(gardenProperties, new RandomAnimalGenerator());
+
+        Garden garden = new Garden(gardenProperties, randomPlantsPositionGenerator.generate(), randomAnimalsPositionGenerator.generate());
 
         System.out.println("Sim: " + gardenProperties.getGardenHeight() + " " + gardenProperties.getGardenWidth() + " " + gardenProperties.getPlantsStartingNumber());
 

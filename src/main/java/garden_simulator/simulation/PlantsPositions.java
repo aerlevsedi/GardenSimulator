@@ -8,7 +8,6 @@ import garden_simulator.plants.Fruit;
 import garden_simulator.plants.Plants;
 import garden_simulator.plants.Vegetable;
 
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.Random;
 
@@ -29,16 +28,19 @@ public class PlantsPositions {
     }
 
     public void animalImpact(AnimalsPositions animalsPositions) {
+        for (int i=0; i<animalsPositions.animalsNumber; i++){
+            AnimalLocation animalLocation = animalsPositions.getAnimalLocation(i);
+            Animal animal = animalLocation.getAnimal();
+            Coordinates coordinates = animalLocation.getCoors();
 
-        for (Animal animal : animalsPositions.animalsArray) {
-            int X = animal.getCoordinates().getX();
-            int Y = animal.getCoordinates().getY();
+            int X = coordinates.getX();
+            int Y = coordinates.getY();
 
-            boolean isAnimalInGarden = (X >= 0 && X < gardenProperties.getGardenWidth() && Y >= 0 && Y < gardenProperties.getGardenHeight());
+            boolean isAnimalInGarden = animalsPositions.isAnimalInGarden(coordinates);
+
             if (isAnimalInGarden) {
-                Coordinates coors = new Coordinates(X, Y);
-                if (plantsByCoordinates.containsKey(coors)) {
-                    plantsByCoordinates.get(coors).evalAnimalImpact(animal);
+                if (plantsByCoordinates.containsKey(coordinates)) {
+                    plantsByCoordinates.get(coordinates).evalAnimalImpact(animal);
                 }
             }
         }

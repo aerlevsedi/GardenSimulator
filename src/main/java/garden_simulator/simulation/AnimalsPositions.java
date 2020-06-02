@@ -2,58 +2,44 @@ package garden_simulator.simulation;
 
 import garden_simulator.coordinates.Coordinates;
 import garden_simulator.animals.Animal;
-import garden_simulator.animals.Bee;
-import garden_simulator.animals.Borer;
-import garden_simulator.animals.Mole;
 
-import java.util.Random;
+import java.util.List;
+
 
 public class AnimalsPositions {
-    public Animal[] animalsArray;
+    private final GardenProperties gardenProperties;
+    private final List<AnimalLocation> animalsPositions;
     public int animalsNumber;
 
-    public AnimalsPositions(GardenProperties gardenProperties) {
-        animalsNumber = gardenProperties.getMaxPlantsNumber();
-        animalsArray = new Animal[animalsNumber];
-        for (int i = 0; i < animalsNumber; i++) {
-            Random coor = new Random();
-
-            int X = coor.nextInt(gardenProperties.getGardenWidth());
-            int Y = coor.nextInt(gardenProperties.getGardenHeight());
-
-            Coordinates coors = new Coordinates(X, Y);
-            Animal animal;
-
-            Random kindRand = new Random();
-            int kind = kindRand.nextInt(3);
-            switch (kind) {
-                case 0:
-                    animal = new Bee(coors);
-                    break;
-                case 1:
-                    animal = new Borer(coors);
-                    break;
-                case 2:
-                    animal = new Mole(coors);
-                    break;
-                default:
-                    animal = new Bee(coors);
-            }
-
-            animalsArray[i] = animal;
-        }
+    public AnimalsPositions(GardenProperties gardenProperties, List<AnimalLocation> animalsPositions) {
+        this.gardenProperties = gardenProperties;
+        this.animalsNumber = gardenProperties.getMaxPlantsNumber();
+        this.animalsPositions = animalsPositions;
     }
 
     public void list() {
-        System.out.println("\nanimalsArray:");
-        for (Animal animal : animalsArray) {
-            System.out.println(animal.toString());
+        System.out.println("\nanimalsList:");
+        for (AnimalLocation animalLocation : animalsPositions) {
+            System.out.println(animalLocation.getAnimal().toString() + " " + animalLocation.getCoors().toString());
         }
     }
 
     public void move() {
-        for (Animal animal : animalsArray) {
-            animal.move();
+        for (AnimalLocation animalLocation : animalsPositions) {
+            Coordinates coors = animalLocation.getCoors();
+            Animal animal = animalLocation.getAnimal();
+            Coordinates newCoors = new Coordinates(animal.getRange(), gardenProperties, coors);
+
+            animalLocation.setCoors(newCoors);
+
         }
+    }
+
+    public AnimalLocation getAnimalLocation(int i){
+        return animalsPositions.get(i);
+    }
+
+    public boolean isAnimalInGarden(Coordinates coors){
+        return (coors.getX() >= 0 && coors.getX() < gardenProperties.getGardenWidth() && coors.getY() >= 0 && coors.getY() < gardenProperties.getGardenHeight());
     }
 }

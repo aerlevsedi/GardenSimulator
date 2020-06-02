@@ -7,10 +7,8 @@ import java.util.*;
 
 public class RandomPlantsPositionGenerator {
     private final GardenProperties gardenProperties;
-
     private final RandomPlantGenerator randomPlantGenerator;
 
-    private final Random randomGenerator = new Random();
 
     public RandomPlantsPositionGenerator(GardenProperties gardenProperties, RandomPlantGenerator randomPlantGenerator) {
         this.gardenProperties = gardenProperties;
@@ -38,7 +36,7 @@ public class RandomPlantsPositionGenerator {
         Collections.shuffle(allPossibleCoordinates);
 
         Map<Coordinates, Plants> plantsByCoordinates = new HashMap<>();
-        System.out.println("PlantsStartingNumber " + gardenProperties.getPlantsStartingNumber());
+        //System.out.println("PlantsStartingNumber " + gardenProperties.getPlantsStartingNumber());
         for (int i = 0; i < gardenProperties.getPlantsStartingNumber(); i++) {
             Coordinates coordinate = chooseCoordinateUntilIsNotTaken(allPossibleCoordinates, plantsByCoordinates);
             plantsByCoordinates.put(coordinate, randomPlantGenerator.getRandomPlant());

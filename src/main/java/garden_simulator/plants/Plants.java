@@ -42,7 +42,7 @@ public abstract class Plants {
 
     public boolean shouldDie() {
 
-        return ((growthPhase==5 && currentLife >= 100) || currentLife<=0);
+        return ((growthPhase == 5 && currentLife >= 100) || currentLife <= 0);
 
     }
 
@@ -50,6 +50,5 @@ public abstract class Plants {
 
         return (growthPhase == 5 && currentLife >= 70);
     }
-
 
 }
