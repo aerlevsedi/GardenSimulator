@@ -26,18 +26,21 @@ public class Simulation {
 
         garden.listPlants();
 
-        while (!garden.isEmpty() && !garden.isFull() && dayOfYear.getDayNumber() <= 365) {
-            garden.draw();
+        while (!garden.isEmpty() && dayOfYear.getDayNumber() <= 365) {
             garden.update(dayOfYear.getSeason());
-
             System.out.println("Season of the year: " + dayOfYear.getSeason().getName());
             System.out.println("Day: " + dayOfYear.getDayNumber());
-
+            System.out.println("Today's garden state:");
+            garden.draw();
+            System.out.println("Today's garden statistics: ");
             garden.stats();
+            System.out.println("\n");
+
             dayOfYear.update();
-            //TODO: nice logs with dayNumber, number of plants etc
         }
+        System.out.println("\nFinal garden state: ");
         garden.draw();
+        garden.stats();
 
     }
 }

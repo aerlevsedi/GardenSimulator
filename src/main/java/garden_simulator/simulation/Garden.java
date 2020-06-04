@@ -55,7 +55,6 @@ public class Garden {
     }
 
     public void stats() {
-        //TODO finish stats
         plantsPositions.countPlants();
 
     }

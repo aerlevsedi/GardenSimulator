@@ -11,10 +11,10 @@ public class Fruit extends Plants {
     public void evalWeatherImpact(WeatherConditions weather) {
 
         double frost = -0.1 * weather.getFrost();
-        double wind = -0.3 * weather.getWind();
+        double wind = -0.5 * weather.getWind();
         double sun = 2.2 * weather.getSun();
-        double rain = 2.0 * weather.getRain();
-        double temperature = 0.3 * weather.getTemperature();
+        double rain = 1.8 * weather.getRain();
+        double temperature = 0.5 * weather.getTemperature();
         currentLife += (int) (frost + wind + sun + rain + temperature);
         updateGrowthPhase();
     }

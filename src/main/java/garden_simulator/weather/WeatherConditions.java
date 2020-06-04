@@ -28,10 +28,10 @@ public class WeatherConditions {
         int temperatureValue = 0;
         switch (season.getName()) {
             case "Spring":
-                temperatureValue = randomGenerator.nextInt(20) + 15;
+                temperatureValue = randomGenerator.nextInt(15) + 10;
                 break;
             case "Summer":
-                temperatureValue = randomGenerator.nextInt(10) + 35;
+                temperatureValue = randomGenerator.nextInt(10) + 25;
                 break;
             case "Fall":
                 temperatureValue = randomGenerator.nextInt(20) + 5;

@@ -151,7 +151,6 @@ public class PlantsPositions {
         int gardenHeight = gardenProperties.getGardenHeight();
         int gardenWidth = gardenProperties.getGardenWidth();
 
-        System.out.println("\nplantsGarden drawing:");
         for (int i = 0; i < gardenHeight; i++) {
             for (int j = 0; j < gardenWidth; j++) {
 
@@ -224,10 +223,37 @@ public class PlantsPositions {
 
             if (item instanceof Vegetable)
                 countVegetables++;
+
+            int currentPhase;
+            currentPhase=item.getGrowthPhase();
+
+            switch(currentPhase)
+            {
+                case 0:
+                    phase0++;break;
+                case 1:
+                    phase1++;break;
+                case 2:
+                    phase2++;break;
+                case 3:
+                    phase3++;break;
+                case 4:
+                    phase4++;break;
+                case 5:
+                    phase5++;break;
+            }
         }
 
         System.out.println(ANSI_YELLOW + "Current number of flowers " + countFlowers + ANSI_RESET);
         System.out.println(ANSI_BLUE + "Current number of fruits " + countFruits + ANSI_RESET);
         System.out.println(ANSI_PURPLE + "Current number of vegetables " + countVegetables + ANSI_RESET);
+        System.out.println("The Number of plants in phase 0 is: "+ phase0);
+        System.out.println("The Number of plants in phase 1 is: "+ phase1);
+        System.out.println("The Number of plants in phase 2 is: "+ phase2);
+        System.out.println("The Number of plants in phase 3 is: "+ phase3);
+        System.out.println("The Number of plants in phase 4 is: "+ phase4);
+        System.out.println("The Number of plants in phase 5 is: "+ phase5);
+
+
     }
 }
