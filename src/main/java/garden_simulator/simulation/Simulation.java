@@ -16,15 +16,17 @@ public class Simulation {
         System.out.println("Sim: " + gardenProperties.getGardenHeight() + " " + gardenProperties.getGardenWidth() + " " + gardenProperties.getPlantsStartingNumber());
 
         garden.listPlants();
-
-        while (!garden.isEmpty() && !garden.isFull()) {
+        int daysCounter=1;
+        while (!garden.isEmpty() && !garden.isFull() && daysCounter<=365) {
             garden.draw();
             //garden.listPlants();
             //garden.listAnimals();
-            garden.stats();
             garden.update();
+            garden.stats();
+            daysCounter++;
             //TODO: nice logs with dayNumber, number of plants etc
         }
         garden.draw();
+
     }
 }

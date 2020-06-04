@@ -93,30 +93,40 @@ public class PlantsPositions {
                         if (plantsByCoordinates.size() >= gardenProperties.getMaxPlantsNumber())
                             break;
 
-                        for (int m = j - 1; m >= 0; m--) {
+                        int loopCounter=0;
+
+                        for (int m = j - 1; m >= 0 && loopCounter<=2; m--) {
 
                             Coordinates newCoors = new Coordinates(m, i);
+                            loopCounter++;
                             if (reproductionCheck(reproducingPlant, newCoors)) ;
-                            break;
+                                break;
+
 
                         }
 
-                        for (int m = j + 1; m <= gardenProperties.getGardenWidth() - 1; m++) {
+                        loopCounter=0;
+                        for (int m = j + 1; m <= gardenProperties.getGardenWidth() - 1 && loopCounter<=2; m++) {
 
                             Coordinates newCoors = new Coordinates(m, i);
+                            loopCounter++;
                             if (reproductionCheck(reproducingPlant, newCoors)) ;
                             break;
                         }
 
-                        for (int m = i - 1; m >= 0; m--) {
+                        loopCounter=0;
+                        for (int m = i - 1; m >= 0 && loopCounter<=2; m--) {
                             Coordinates newCoors = new Coordinates(j, m);
+                            loopCounter++;
                             if (reproductionCheck(reproducingPlant, newCoors)) ;
                             break;
                         }
 
-                        for (int m = i + 1; m <= gardenProperties.getGardenHeight() - 1; m++) {
+                        loopCounter=0;
+                        for (int m = i + 1; m <= gardenProperties.getGardenHeight() - 1 && loopCounter<=2; m++) {
 
                             Coordinates newCoors = new Coordinates(j, m);
+                            loopCounter++;
                             if (reproductionCheck(reproducingPlant, newCoors)) ;
                             break;
 
