@@ -1,6 +1,9 @@
-package garden_simulator.simulation;
+package garden_simulator.simulation.plants;
 
 import garden_simulator.coordinates.Coordinates;
+import garden_simulator.simulation.GardenProperties;
+import garden_simulator.simulation.animals.AnimalLocation;
+import garden_simulator.simulation.animals.AnimalsPositions;
 import garden_simulator.weather.WeatherConditions;
 import garden_simulator.animals.Animal;
 import garden_simulator.plants.Flower;
@@ -28,13 +31,10 @@ public class PlantsPositions {
     }
 
     public void animalImpact(AnimalsPositions animalsPositions) {
-        for (int i=0; i<animalsPositions.animalsNumber; i++){
+        for (int i = 0; i < animalsPositions.animalsNumber; i++) {
             AnimalLocation animalLocation = animalsPositions.getAnimalLocation(i);
             Animal animal = animalLocation.getAnimal();
             Coordinates coordinates = animalLocation.getCoors();
-
-            int X = coordinates.getX();
-            int Y = coordinates.getY();
 
             boolean isAnimalInGarden = animalsPositions.isAnimalInGarden(coordinates);
 
@@ -46,10 +46,10 @@ public class PlantsPositions {
         }
     }
 
-    public void weatherImpact(WeatherConditions weatherConditions, String season) {
+    public void weatherImpact(WeatherConditions weatherConditions) {
 
         for (Plants plant : plantsByCoordinates.values()) {
-            plant.evalWeatherImpact(weatherConditions,season);
+            plant.evalWeatherImpact(weatherConditions);
         }
 
     }
@@ -93,17 +93,8 @@ public class PlantsPositions {
                         if (plantsByCoordinates.size() >= gardenProperties.getMaxPlantsNumber())
                             break;
 
-                        int loopCounter=0;
-                        for (int m = j - 1; m >= 0 && loopCounter<=2; m--) {
-
-                            Coordinates newCoors = new Coordinates(m, i);
-                            loopCounter++;
-                            if (reproductionCheck(reproducingPlant, newCoors)) ;
-                                break;
-                        }
-
-                        loopCounter=0;
-                        for (int m = j + 1; m <= gardenProperties.getGardenWidth() - 1 && loopCounter<=2; m++) {
+                        int loopCounter = 0;
+                        for (int m = j - 1; m >= 0 && loopCounter <= 2; m--) {
 
                             Coordinates newCoors = new Coordinates(m, i);
                             loopCounter++;
@@ -111,16 +102,25 @@ public class PlantsPositions {
                             break;
                         }
 
-                        loopCounter=0;
-                        for (int m = i - 1; m >= 0 && loopCounter<=2; m--) {
+                        loopCounter = 0;
+                        for (int m = j + 1; m <= gardenProperties.getGardenWidth() - 1 && loopCounter <= 2; m++) {
+
+                            Coordinates newCoors = new Coordinates(m, i);
+                            loopCounter++;
+                            if (reproductionCheck(reproducingPlant, newCoors)) ;
+                            break;
+                        }
+
+                        loopCounter = 0;
+                        for (int m = i - 1; m >= 0 && loopCounter <= 2; m--) {
                             Coordinates newCoors = new Coordinates(j, m);
                             loopCounter++;
                             if (reproductionCheck(reproducingPlant, newCoors)) ;
                             break;
                         }
 
-                        loopCounter=0;
-                        for (int m = i + 1; m <= gardenProperties.getGardenHeight() - 1 && loopCounter<=2; m++) {
+                        loopCounter = 0;
+                        for (int m = i + 1; m <= gardenProperties.getGardenHeight() - 1 && loopCounter <= 2; m++) {
 
                             Coordinates newCoors = new Coordinates(j, m);
                             loopCounter++;
@@ -158,7 +158,6 @@ public class PlantsPositions {
                 Coordinates coors = new Coordinates(j, i);
 
                 if (!plantsByCoordinates.containsKey(coors)) {
-                    //System.out.print("O");
                     System.out.print("(X,Y)");
                 } else {
 
@@ -178,12 +177,10 @@ public class PlantsPositions {
     }
 
     public void list() {
-        int gardenHeight = gardenProperties.getGardenHeight();
-        int gardenWidth = gardenProperties.getGardenWidth();
 
         System.out.println("\nplantsArray:");
-        for (Plants item : plantsByCoordinates.values()) {
-            System.out.println(item.toString());
+        for (Plants plant : plantsByCoordinates.values()) {
+            System.out.println(plant.toString());
         }
     }
 
@@ -227,49 +224,10 @@ public class PlantsPositions {
 
             if (item instanceof Vegetable)
                 countVegetables++;
-                /*
-            int Phase=item.getGrowthPhase();
-
-            /
-            if(Phase==0)
-                phase0++;
-            if(Phase==1)
-               phase1++;
-            if(Phase==2)
-                phase2++;
-            if(Phase==3)
-                phase3++;
-            if(Phase==4)
-                phase4++;
-            if(Phase==5)
-                phase5++;
-
-             */
-
-
         }
-
 
         System.out.println(ANSI_YELLOW + "Current number of flowers " + countFlowers + ANSI_RESET);
         System.out.println(ANSI_BLUE + "Current number of fruits " + countFruits + ANSI_RESET);
         System.out.println(ANSI_PURPLE + "Current number of vegetables " + countVegetables + ANSI_RESET);
-        /*
-        System.out.println("Number of plants in Phase 0: "+phase0);
-        System.out.println("Number of plants in Phase 1: "+phase1);
-        System.out.println("Number of plants in Phase 2: "+phase2);
-        System.out.println("Number of plants in Phase 3: "+phase3);
-        System.out.println("Number of plants in Phase 4: "+phase4);
-        System.out.println("Number of plants in Phase 5: "+phase5);
-
-         */
-
-        /*System.out.println("Number of plants in Phase 1: "+phase1);
-        System.out.println("Number of plants in Phase 2: "+phase2);
-        System.out.println("Number of plants in Phase 3: "+phase3);
-        System.out.println("Number of plants in Phase 4: "+phase4);
-        System.out.println("Number of plants in Phase 5: "+phase5);
-
-         */
-
     }
 }

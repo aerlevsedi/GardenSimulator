@@ -1,5 +1,8 @@
 package garden_simulator.simulation;
 
+import garden_simulator.simulation.animals.AnimalsPositions;
+import garden_simulator.simulation.day.Season;
+import garden_simulator.simulation.plants.PlantsPositions;
 import garden_simulator.weather.WeatherConditions;
 
 public class Garden {
@@ -10,25 +13,25 @@ public class Garden {
 
     public WeatherConditions weatherConditions;
 
-    public Garden(GardenProperties properties, PlantsPositions plantsPositions, AnimalsPositions animalsPositions) {
+    public Garden(GardenProperties properties, PlantsPositions plantsPositions, AnimalsPositions animalsPositions, Season season) {
         gardenProperties = properties;
         this.plantsPositions = plantsPositions;
         this.animalsPositions = animalsPositions;
-        weatherConditions = new WeatherConditions();
+        weatherConditions = new WeatherConditions(season);
     }
 
-    public void impact(String season) {
+    public void impact() {
         plantsPositions.animalImpact(animalsPositions);
-        plantsPositions.weatherImpact(weatherConditions,season);
+        plantsPositions.weatherImpact(weatherConditions);
     }
 
-    public void update(String season) {
+    public void update(Season season) {
 
         plantsPositions.reproduce();
         plantsPositions.killPlants();
         animalsPositions.move();
-        weatherConditions = new WeatherConditions();
-        impact(season);
+        weatherConditions = new WeatherConditions(season);
+        impact();
     }
 
     public void draw() {

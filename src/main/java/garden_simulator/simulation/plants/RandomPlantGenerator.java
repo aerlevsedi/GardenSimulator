@@ -1,4 +1,4 @@
-package garden_simulator.simulation;
+package garden_simulator.simulation.plants;
 
 import garden_simulator.plants.Flower;
 import garden_simulator.plants.Fruit;

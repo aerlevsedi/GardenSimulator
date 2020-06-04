@@ -1,7 +1,8 @@
-package garden_simulator.simulation;
+package garden_simulator.simulation.animals;
 
 import garden_simulator.coordinates.Coordinates;
 import garden_simulator.animals.Animal;
+import garden_simulator.simulation.GardenProperties;
 
 import java.util.*;
 
