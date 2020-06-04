@@ -18,12 +18,21 @@ public abstract class Plants {
         return growthPhase;
     }
 
-    public void evalWeatherImpact(WeatherConditions weather) {
-        //to override, depends on class
+    public void evalWeatherImpact(WeatherConditions weather, String season) {
+
+    }
+    public void evalSpring(WeatherConditions weather) {
+    }
+    public void evalSummer(WeatherConditions weather){
+    }
+    public void evalFall(WeatherConditions weather){
+    }
+    public void evalWinter(WeatherConditions weather){
+
     }
 
     public void evalAnimalImpact(Animal animal) {
-        //to override, depends on class
+
         updateGrowthPhase();
     }
 
@@ -32,12 +41,6 @@ public abstract class Plants {
             currentLife = 50;
             growthPhase++;
         }
-        /*
-        if(currentLife<50 && growthPhase>0) {
-            growthPhase--;
-            currentLife = 50;
-        }
-        */
     }
 
     public boolean shouldDie() {

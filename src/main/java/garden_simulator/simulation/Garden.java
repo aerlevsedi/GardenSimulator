@@ -17,17 +17,18 @@ public class Garden {
         weatherConditions = new WeatherConditions();
     }
 
-    public void impact() {
+    public void impact(String season) {
         plantsPositions.animalImpact(animalsPositions);
-        plantsPositions.weatherImpact(weatherConditions);
+        plantsPositions.weatherImpact(weatherConditions,season);
     }
 
-    public void update() {
+    public void update(String season) {
+
         plantsPositions.reproduce();
         plantsPositions.killPlants();
         animalsPositions.move();
         weatherConditions = new WeatherConditions();
-        impact();
+        impact(season);
     }
 
     public void draw() {

@@ -46,10 +46,10 @@ public class PlantsPositions {
         }
     }
 
-    public void weatherImpact(WeatherConditions weatherConditions) {
+    public void weatherImpact(WeatherConditions weatherConditions, String season) {
 
         for (Plants plant : plantsByCoordinates.values()) {
-            plant.evalWeatherImpact(weatherConditions);
+            plant.evalWeatherImpact(weatherConditions,season);
         }
 
     }
@@ -94,15 +94,12 @@ public class PlantsPositions {
                             break;
 
                         int loopCounter=0;
-
                         for (int m = j - 1; m >= 0 && loopCounter<=2; m--) {
 
                             Coordinates newCoors = new Coordinates(m, i);
                             loopCounter++;
                             if (reproductionCheck(reproducingPlant, newCoors)) ;
                                 break;
-
-
                         }
 
                         loopCounter=0;

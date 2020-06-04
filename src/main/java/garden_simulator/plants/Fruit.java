@@ -8,17 +8,71 @@ public class Fruit extends Plants {
     public Fruit() {
     }
 
-    public void evalWeatherImpact(WeatherConditions weather) {
+    public void evalWeatherImpact(WeatherConditions weather, String season) {
 
-        double frost = -0.7 * weather.getFrost();
-        double wind = -0.6 * weather.getWind();
-        double sun = 2.5 * weather.getSun();
-        double rain = 0.8 * weather.getRain();
+        switch(season)
+        {
+            case "Spring":
+                evalSpring(weather);
+                break;
+            case "Summer":
+                evalSummer(weather);
+                break;
+            case "Fall":
+                evalFall(weather);
+                break;
+            case "Winter":
+                evalWinter(weather);
+                break;
+        }
 
-        currentLife += (int) (frost + wind + sun + rain);
+    }
+
+    public void evalSpring(WeatherConditions weather) {
+        double frost = -0.5 * weather.getFrost();
+        double wind = -0.5 * weather.getWind();
+        double sun = 1.7 * weather.getSun();
+        double rain = 0.6 * weather.getRain();
+
+        int temperature=weather.getSpringTemperature();
+        currentLife += (int) (frost + wind + sun + rain+temperature);
         updateGrowthPhase();
     }
 
+    public void evalSummer(WeatherConditions weather)
+    {
+        double wind = -0.1 * weather.getWind();
+        double sun = 3 * weather.getSun();
+        double rain = 0.5 * weather.getRain();
+        double storm = -2 * weather.getStorm();
+
+        int temperature=weather.getSummerTemperature();
+        currentLife += (int) (storm + wind + sun + rain+temperature);
+        updateGrowthPhase();
+    }
+    public void evalFall(WeatherConditions weather)
+    {
+        double wind = -0.3 * weather.getWind();
+        double sun = 1 * weather.getSun();
+        double rain = 0.2 * weather.getRain();
+        double storm = -0.5 * weather.getStorm();
+        double frost = -0.1 * weather.getFrost();
+
+        int temperature=weather.getFallTemperature();
+        currentLife += (int) (frost+storm + wind + sun + rain+temperature);
+        updateGrowthPhase();
+    }
+    public void evalWinter(WeatherConditions weather)
+    {
+        double wind = -0.2 * weather.getWind();
+        double sun = 0.8 * weather.getSun();
+        double rain = 1 * weather.getRain();
+        double frost = -0.8 * weather.getFrost();
+
+        int temperature=weather.getWinterTemperature();
+        currentLife += (int) (frost+ wind + sun + rain+temperature);
+        updateGrowthPhase();
+    }
     public void evalAnimalImpact(Animal animal) {
         currentLife += animal.getImpact();
         updateGrowthPhase();
