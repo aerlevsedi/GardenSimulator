@@ -25,6 +25,7 @@ public class Simulation {
         System.out.println("Sim: " + gardenProperties.getGardenHeight() + " " + gardenProperties.getGardenWidth() + " " + gardenProperties.getPlantsStartingNumber());
 
         garden.listPlants();
+        System.out.println("\n");
 
         while (!garden.isEmpty() && dayOfYear.getDayNumber() <= 365) {
             garden.update(dayOfYear.getSeason());

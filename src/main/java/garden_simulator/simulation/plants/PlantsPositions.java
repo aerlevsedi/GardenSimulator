@@ -244,6 +244,7 @@ public class PlantsPositions {
             }
         }
 
+        System.out.println("Total number of plants is :"+getPlantsNumber());
         System.out.println(ANSI_YELLOW + "Current number of flowers " + countFlowers + ANSI_RESET);
         System.out.println(ANSI_BLUE + "Current number of fruits " + countFruits + ANSI_RESET);
         System.out.println(ANSI_PURPLE + "Current number of vegetables " + countVegetables + ANSI_RESET);

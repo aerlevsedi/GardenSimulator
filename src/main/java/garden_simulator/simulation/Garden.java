@@ -56,6 +56,5 @@ public class Garden {
 
     public void stats() {
         plantsPositions.countPlants();
-
     }
 }
