@@ -6,7 +6,6 @@ public class GardenProperties {
 
     public GardenProperties(GardenDimensions dimensions, int plantsStartingNumber) {
         this.dimensions = dimensions;
-        System.out.println("plantsStartingNumber " + plantsStartingNumber);
         this.plantsStartingNumber = plantsStartingNumber;
     }
 

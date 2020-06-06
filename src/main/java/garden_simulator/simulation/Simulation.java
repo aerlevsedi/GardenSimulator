@@ -22,7 +22,7 @@ public class Simulation {
         Garden garden = new Garden(gardenProperties, randomPlantsPositionGenerator.generate(), randomAnimalsPositionGenerator.generate(), dayOfYear.getSeason());
 
 
-        System.out.println("Sim: " + gardenProperties.getGardenHeight() + " " + gardenProperties.getGardenWidth() + " " + gardenProperties.getPlantsStartingNumber());
+        System.out.println("Simulation for: Height: " + gardenProperties.getGardenHeight() + ", Width: " + gardenProperties.getGardenWidth() + ", Number of plants: " + gardenProperties.getPlantsStartingNumber());
 
         garden.listPlants();
         System.out.println("\n");
