@@ -12,13 +12,10 @@ import garden_simulator.plants.Plants;
 import garden_simulator.plants.Vegetable;
 
 import java.util.Map;
-import java.util.Random;
 
 public class PlantsPositions {
     private final GardenProperties gardenProperties;
-
     private final Map<Coordinates, Plants> plantsByCoordinates;
-    private final Random randomGenerator = new Random();
 
     public static final String ANSI_BLUE = "\u001B[34m";
     public static final String ANSI_PURPLE = "\u001B[35m";
@@ -51,7 +48,6 @@ public class PlantsPositions {
         for (Plants plant : plantsByCoordinates.values()) {
             plant.evalWeatherImpact(weatherConditions);
         }
-
     }
 
     public void killPlants() {
