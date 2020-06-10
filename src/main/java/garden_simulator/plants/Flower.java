@@ -17,8 +17,9 @@ public class Flower extends Plants {
         double wind = -0.4 * weather.getWind();
         double sun = 2.5 * weather.getSun();
         double rain = 1.5 * weather.getRain();
+        double storm =-0.1*weather.getStorm();
         double temperature = 0.5 * weather.getTemperature();
-        currentLife += (int) (frost + wind + sun + rain + temperature);
+        currentLife += (int) (frost + wind + sun + rain + storm + temperature);
         updateGrowthPhase();
     }
 
