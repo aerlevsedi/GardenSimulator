@@ -10,6 +10,10 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
 
+/**
+ * Generates random Animal out of
+ * Bee, Borer and Mole
+ */
 public class RandomAnimalGenerator {
 
     private static final List<Supplier<Animal>> availableAnimals = Arrays.asList(

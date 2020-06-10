@@ -4,6 +4,10 @@ import garden_simulator.simulation.day.Season;
 
 import java.util.Random;
 
+/**
+ * Keeps status of the weather.
+ * Sets parameters based on current Season.
+ */
 public class WeatherConditions {
     private final int rain;
     private final int frost;

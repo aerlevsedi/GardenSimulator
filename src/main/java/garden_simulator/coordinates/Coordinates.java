@@ -1,10 +1,14 @@
 package garden_simulator.coordinates;
 
 import garden_simulator.simulation.GardenProperties;
-
 import java.util.Objects;
 import java.util.Random;
 
+/**
+ * Keeps information about X and Y coordinate.
+ * Constructor based on exact new coordinates or
+ * on GardenProperties, range and already existed Coordinates
+ */
 public class Coordinates {
     private int X;
     private int Y;

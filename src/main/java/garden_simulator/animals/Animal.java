@@ -1,9 +1,9 @@
 package garden_simulator.animals;
 
-import garden_simulator.coordinates.Coordinates;
-
-import java.util.Random;
-
+/**
+ * Keeps information about impact on plants
+ * and range for moving.
+ */
 public abstract class Animal {
     protected int impact;
     protected int range;

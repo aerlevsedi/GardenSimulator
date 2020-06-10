@@ -1,10 +1,11 @@
 package garden_simulator.animals;
 
-import garden_simulator.coordinates.Coordinates;
-
+/**
+ * Sets impact and range for Mole
+ */
 public class Mole extends Animal {
-    public Mole() {
 
+    public Mole() {
         impact = -10;
         range = (int) (0.2 * width * height);
         if (range < 1)

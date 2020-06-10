@@ -8,6 +8,10 @@ import garden_simulator.simulation.plants.RandomPlantsPositionGenerator;
 
 import java.io.IOException;
 
+/**
+ * Runs simulation based on GardenProperties
+ * and shows logs.
+ */
 public class Simulation {
 
     public void run(GardenProperties gardenProperties) throws IOException {
@@ -21,9 +25,7 @@ public class Simulation {
 
         Garden garden = new Garden(gardenProperties, randomPlantsPositionGenerator.generate(), randomAnimalsPositionGenerator.generate(), dayOfYear.getSeason());
 
-
         System.out.println("Simulation for: Height: " + gardenProperties.getGardenHeight() + ", Width: " + gardenProperties.getGardenWidth() + ", Number of plants: " + gardenProperties.getPlantsStartingNumber());
-
         garden.listPlants();
         System.out.println("\n");
 
@@ -42,6 +44,5 @@ public class Simulation {
         System.out.println("\nFinal garden state: ");
         garden.draw();
         garden.stats();
-
     }
 }

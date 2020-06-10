@@ -3,6 +3,9 @@ package garden_simulator.simulation.animals;
 import garden_simulator.animals.Animal;
 import garden_simulator.coordinates.Coordinates;
 
+/**
+ * Keeps pair of Animal and its Coordinates
+ */
 public class AnimalLocation {
     private Coordinates coors;
     private final Animal animal;

@@ -13,6 +13,13 @@ import garden_simulator.plants.Vegetable;
 
 import java.util.Map;
 
+/**
+ * Keeps all Plants with their positions.
+ * Checks which Plants can reproduce and
+ * which should die.
+ * Evaluates impacts of Animals and Weather
+ * on every plant.
+ */
 public class PlantsPositions {
     private final GardenProperties gardenProperties;
     private final Map<Coordinates, Plants> plantsByCoordinates;
@@ -124,7 +131,6 @@ public class PlantsPositions {
                             break;
 
                         }
-
                     }
                 }
             }
@@ -250,7 +256,5 @@ public class PlantsPositions {
         System.out.println("The Number of plants in phase 3 is: "+ phase3);
         System.out.println("The Number of plants in phase 4 is: "+ phase4);
         System.out.println("The Number of plants in phase 5 is: "+ phase5);
-
-
     }
 }

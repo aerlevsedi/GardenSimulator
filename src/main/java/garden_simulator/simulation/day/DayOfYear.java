@@ -1,5 +1,9 @@
 package garden_simulator.simulation.day;
 
+/**
+ * Keeps information about number of the day in simulation
+ * and returns current Season of the year.
+ */
 public class DayOfYear {
     private int number;
 

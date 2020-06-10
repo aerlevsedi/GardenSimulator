@@ -6,7 +6,10 @@ import garden_simulator.simulation.GardenProperties;
 
 import java.util.List;
 
-
+/**
+ * Keeps all Animals with their positions.
+ * Moves each Animal on a new position.
+ */
 public class AnimalsPositions {
     private final GardenProperties gardenProperties;
     private final List<AnimalLocation> animalsPositions;
@@ -32,7 +35,6 @@ public class AnimalsPositions {
             Coordinates newCoors = new Coordinates(animal.getRange(), gardenProperties, coors);
 
             animalLocation.setCoors(newCoors);
-
         }
     }
 
@@ -41,6 +43,8 @@ public class AnimalsPositions {
     }
 
     public boolean isAnimalInGarden(Coordinates coors) {
-        return (coors.getX() >= 0 && coors.getX() < gardenProperties.getGardenWidth() && coors.getY() >= 0 && coors.getY() < gardenProperties.getGardenHeight());
+        boolean isInWidth = (coors.getX() >= 0 && coors.getX() < gardenProperties.getGardenWidth());
+        boolean isInHeight = (coors.getY() >= 0 && coors.getY() < gardenProperties.getGardenHeight());
+        return (isInWidth && isInHeight);
     }
 }

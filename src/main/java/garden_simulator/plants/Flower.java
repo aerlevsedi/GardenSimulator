@@ -3,6 +3,10 @@ package garden_simulator.plants;
 import garden_simulator.animals.Animal;
 import garden_simulator.weather.WeatherConditions;
 
+/**
+ * Defines how to evaluate impacts of
+ * Weather and Animals for flowers
+ */
 public class Flower extends Plants {
     public Flower() {
     }

@@ -6,6 +6,9 @@ import garden_simulator.simulation.GardenProperties;
 
 import java.util.*;
 
+/**
+ * Generates random positions for Plants.
+ */
 public class RandomPlantsPositionGenerator {
     private final GardenProperties gardenProperties;
     private final RandomPlantGenerator randomPlantGenerator;
@@ -37,7 +40,7 @@ public class RandomPlantsPositionGenerator {
         Collections.shuffle(allPossibleCoordinates);
 
         Map<Coordinates, Plants> plantsByCoordinates = new HashMap<>();
-        //System.out.println("PlantsStartingNumber " + gardenProperties.getPlantsStartingNumber());
+
         for (int i = 0; i < gardenProperties.getPlantsStartingNumber(); i++) {
             Coordinates coordinate = chooseCoordinateUntilIsNotTaken(allPossibleCoordinates, plantsByCoordinates);
             plantsByCoordinates.put(coordinate, randomPlantGenerator.getRandomPlant());
@@ -55,5 +58,4 @@ public class RandomPlantsPositionGenerator {
         }
         return coordinates;
     }
-
 }

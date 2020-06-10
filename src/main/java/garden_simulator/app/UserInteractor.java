@@ -1,17 +1,14 @@
 package garden_simulator.app;
 
-import garden_simulator.simulation.GardenProperties;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.Scanner;
 import java.util.function.IntPredicate;
-import java.util.function.Predicate;
 
 import static garden_simulator.simulation.GardenProperties.*;
 
+/**
+ * Interaction with user,
+ * asking for size of the garden and staring number of plants
+ */
 public class UserInteractor {
     private final Scanner scanner = new Scanner(System.in);
 
@@ -51,9 +48,7 @@ public class UserInteractor {
                 startingPlantsNumberValidation
         );
 
-
         return startingPlantsNumber;
     }
-
 }
 

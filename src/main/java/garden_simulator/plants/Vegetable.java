@@ -1,9 +1,12 @@
 package garden_simulator.plants;
 
-import garden_simulator.coordinates.Coordinates;
 import garden_simulator.animals.Animal;
 import garden_simulator.weather.WeatherConditions;
 
+/**
+ * Defines how to evaluate impacts of
+ * Weather and Animals for vegetables
+ */
 public class Vegetable extends Plants {
     public Vegetable() {
     }
@@ -20,7 +23,7 @@ public class Vegetable extends Plants {
     }
 
     public void evalAnimalImpact(Animal animal) {
-        currentLife += animal.getImpact();
+        currentLife += (int)(1.1 * animal.getImpact());
         updateGrowthPhase();
     }
 

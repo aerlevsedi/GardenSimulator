@@ -6,6 +6,9 @@ import garden_simulator.simulation.GardenProperties;
 
 import java.util.*;
 
+/**
+ * Generates random position for Animals.
+ */
 public class RandomAnimalsPositionGenerator {
     private final GardenProperties gardenProperties;
     private final RandomAnimalGenerator randomAnimalGenerator;
@@ -43,5 +46,4 @@ public class RandomAnimalsPositionGenerator {
 
         return new AnimalsPositions(gardenProperties, animalsList);
     }
-
 }

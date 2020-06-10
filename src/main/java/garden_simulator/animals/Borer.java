@@ -1,10 +1,11 @@
 package garden_simulator.animals;
 
-import garden_simulator.coordinates.Coordinates;
-
+/**
+ * Sets impact and range for Borer
+ */
 public class Borer extends Animal {
-    public Borer() {
 
+    public Borer() {
         impact = -10;
         range = (int) (0.1 * width * height);
         if (range < 1)

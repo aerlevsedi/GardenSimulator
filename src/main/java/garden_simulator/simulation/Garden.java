@@ -5,8 +5,12 @@ import garden_simulator.simulation.day.Season;
 import garden_simulator.simulation.plants.PlantsPositions;
 import garden_simulator.weather.WeatherConditions;
 
+/**
+ * Keeps information about position of plants and animals.
+ * Updates states of plants, animals and weather.
+ */
 public class Garden {
-    private final GardenProperties gardenProperties; //need it?
+    private final GardenProperties gardenProperties;
 
     private final PlantsPositions plantsPositions;
     private final AnimalsPositions animalsPositions;

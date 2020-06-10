@@ -3,6 +3,11 @@ package garden_simulator.plants;
 import garden_simulator.animals.Animal;
 import garden_simulator.weather.WeatherConditions;
 
+/**
+ * Keeps information about Plant,
+ * its life and growth phase status and upgrades them.
+ * Evaluates impacts of Weather and Animals
+ */
 public abstract class Plants {
     protected int currentLife;
     protected int growthPhase;

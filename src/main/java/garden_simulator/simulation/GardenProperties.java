@@ -1,5 +1,11 @@
 package garden_simulator.simulation;
 
+/**
+ * Keeps information about size of the garden
+ * and what was the starting number of plants
+ * and shows what is the maximum number of plants
+ * that can be in the garden
+ */
 public class GardenProperties {
     private final GardenDimensions dimensions;
     private final int plantsStartingNumber;
@@ -25,7 +31,9 @@ public class GardenProperties {
         return dimensions.getMaxPlantsNumber();
     }
 
-
+    /**
+     * Keeps information about width and height of the garden
+     */
     public static class GardenDimensions {
         private final int width;
         private final int height;

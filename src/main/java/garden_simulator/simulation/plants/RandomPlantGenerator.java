@@ -5,12 +5,15 @@ import garden_simulator.plants.Fruit;
 import garden_simulator.plants.Plants;
 import garden_simulator.plants.Vegetable;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
 
+/**
+ * Generates random Plant out of
+ * Flower, Fruit and Vegetable
+ */
 public class RandomPlantGenerator {
 
     private static final List<Supplier<Plants>> availablePlants = Arrays.asList(
