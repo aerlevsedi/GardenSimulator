@@ -20,6 +20,5 @@ public class Main {
 
         GardenProperties gardenProperties = new GardenProperties(gardenDimensions, maxPlantsNumber);
         simulation.run(gardenProperties);
-        //sdsds
     }
 }
